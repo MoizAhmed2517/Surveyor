@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, useLocation  } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 // Icons
 import AdbIcon from '@mui/icons-material/Adb';
 import SettingsIcon from '@mui/icons-material/Settings';
-
+import CircleIcon from '@mui/icons-material/Circle';
 
 // Material UI components
 import AppBar from '@mui/material/AppBar';
@@ -20,6 +21,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { BorderBottom } from '@mui/icons-material';
+import { Stack } from '@mui/material';
+import Divider from '@mui/material/Divider';
 
 // Pages
 const pages = [
@@ -42,14 +45,20 @@ const pages = [
   ];
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const colors = ['linear-gradient(195deg, #49a3f1, #1A73E8)', 'linear-gradient(195deg, #42424a, #191919)', 'linear-gradient(195deg, #66BB6A, #43A047)', 'linear-gradient(195deg, #FFA726, #FB8C00)', 'linear-gradient(195deg, #EC407A, #D81B60)', 'linear-gradient(195deg, #EF5350, #E53935)' ]
+const colors = [ 'linear-gradient(195deg, #42424a, #191919)', 'linear-gradient(195deg, #49a3f1, #1A73E8)', 'linear-gradient(195deg, #66BB6A, #43A047)', 'linear-gradient(195deg, #FFA726, #FB8C00)', 'linear-gradient(195deg, #EC407A, #D81B60)', 'linear-gradient(195deg, #EF5350, #E53935)' ]
+const primaryColors = ['#42424a', '#49a3f1', '#66BB6A', '#FFA726', '#EC407A', '#EF5350']
 const activeTabColor = ['#F39223', '#044d95', '#890404', '#202326', '#83062e', '#e3d20e']
+const iconColor = ['#044d95', '#04951d', '#7f0495', '#6c6c6c', '#a30e0e', '#ffb100' ]
+
 const Navbar = () => {
 
-  // States
+  // States 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElSetting, setAnchorElSetting] = React.useState(null);
+  const [tabColor, setTabColor] = React.useState(0);
   const [activeTab, setActiveTab] = React.useState(0);
+  const [activeTabColors, setActiveTabColors] = React.useState(0);
 
   // Global variables
 
@@ -57,8 +66,13 @@ const Navbar = () => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+  };
+
+  const handleOpenSettings = (event) => {
+    setAnchorElSetting(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
@@ -67,6 +81,10 @@ const Navbar = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleCloseSettings = (event) => {
+    setAnchorElSetting(null);
   };
 
   const handleTabClick = (index) => {
@@ -78,8 +96,20 @@ const Navbar = () => {
     setAnchorElNav(null);
   };
 
+  const handleNavColor = (event, index) => {
+    setTabColor(index);
+  } 
+
+  const handleActiveTabColor = (event, index) => {
+    setActiveTabColors(index);
+  }
+
+  const handleIconColor = (event, index) => {
+    Cookies.set('IconColor', iconColor[index])
+  }
+
   return (
-    <AppBar position="static" sx={{background: colors[2], marginBottom: 2}}>
+    <AppBar position="static" sx={{background: colors[tabColor], marginBottom: 2}}>
       <Container maxWidth="xl" >
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1}} />
@@ -177,9 +207,9 @@ const Navbar = () => {
                 onClick={() => handleTabClick(index)}
                 sx={{
                   mx: .5,
-                  color: index === activeTab ? activeTabColor[0] : '#ffffff', 
+                  color: index === activeTab ? activeTabColor[activeTabColors] : '#ffffff', 
                   display: 'block',
-                  borderBottom: index === activeTab ? `2px inset ${activeTabColor[0]}` : '2px inset #ffffff',
+                  borderBottom: index === activeTab ? `2px inset ${activeTabColor[activeTabColors]}` : '2px inset #ffffff',
                   borderRadius: 0,
                 }}
                 component={Link}
@@ -193,8 +223,8 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
 
             <Tooltip title="Settings">
-              <IconButton size="large" padding={2} >
-                  <SettingsIcon sx={{ maxWidth: '20px', height: '20px', padingLeft:2 }} />
+              <IconButton onClick={handleOpenSettings} size="large" padding={2} >
+                  <SettingsIcon sx={{ maxWidth: '20px', height: '20px', padingLeft:2, color: '#FFFFFF' }} />
               </IconButton>
             </Tooltip>
 
@@ -203,6 +233,64 @@ const Navbar = () => {
                 <Avatar alt="Moiz Ahmed" src="./statics/images/avater.jpg" />
               </IconButton>
             </Tooltip>
+
+            <Menu
+              sx={{ mt: '45px'}}
+              id="menu-appbar"
+              anchorEl={anchorElSetting}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElSetting)}
+              onClose={handleCloseSettings}
+            >
+
+              <Stack direction="column" spacing={2} sx={{ padding: '10px 0px 0px 10px', mx: '10px'}}>
+                <Typography variant="h5" >UI Configurator</Typography>
+                <Divider />
+                <Typography variant="button" display="block" gutterBottom>Navbar Colors</Typography>
+              </Stack>
+
+              <Stack direction="row" spacing={1} onClick={handleCloseSettings} sx={{ padding: '0px 10px 10px 10px'}}>
+                {primaryColors.map((colour, index) => (
+                  <IconButton key={index} onClick={(event) => handleNavColor(event, index)}>
+                    <CircleIcon sx={{ color: `${colour}`, display: 'inline-flex'}} />
+                  </IconButton>
+                ))}
+              </Stack>
+
+              <Stack direction="column" spacing={2} sx={{ padding: '10px 0px 0px 10px', mx: '10px'}}>
+                <Typography variant="button" display="block" gutterBottom>Active Tab Colors</Typography>
+              </Stack>
+
+              <Stack direction="row" spacing={1} onClick={handleCloseSettings} sx={{ padding: '0px 10px 10px 10px'}}>
+                {activeTabColor.map((colour, index) => (
+                  <IconButton key={index} onClick={(event) => handleActiveTabColor(event, index)}>
+                    <CircleIcon sx={{ color: `${colour}`, display: 'inline-flex'}} />
+                  </IconButton>
+                ))}
+              </Stack>
+
+              <Stack direction="column" spacing={2} sx={{ padding: '10px 0px 0px 10px', mx: '10px'}}>
+                <Typography variant="button" display="block" gutterBottom>Icon Colors</Typography>
+              </Stack>
+
+              <Stack direction="row" spacing={1} onClick={handleCloseSettings} sx={{ padding: '0px 10px 10px 10px'}}>
+                {iconColor.map((colour, index) => (
+                  <IconButton key={index} onClick={(event) => handleIconColor(event, index)}>
+                    <CircleIcon sx={{ color: `${colour}`, display: 'inline-flex'}} />
+                  </IconButton>
+                ))}
+              </Stack>
+
+
+            </Menu>
 
             <Menu
               sx={{ mt: '45px' }}
