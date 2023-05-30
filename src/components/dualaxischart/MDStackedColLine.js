@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Ant Charts
-import { Pie } from '@ant-design/plots';
+import { DualAxes } from '@ant-design/plots';
 
 // Material UI Icons
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
@@ -18,56 +18,100 @@ import Button from '@mui/material/Button';
 import Cookies from 'js-cookie';
 
 const MDPieChart = (props) => {
-    const data = [
+    const uvBillData = [
         {
-          type: 'Data-A ',
-          value: 27,
+          time: '2019-03',
+          value: 350,
+          type: 'uv',
         },
         {
-          type: 'Data-B ',
-          value: 25,
+          time: '2019-04',
+          value: 900,
+          type: 'uv',
         },
         {
-          type: 'Data-C ',
-          value: 18,
+          time: '2019-05',
+          value: 300,
+          type: 'uv',
         },
         {
-          type: 'Data-D ',
-          value: 15,
+          time: '2019-06',
+          value: 450,
+          type: 'uv',
         },
         {
-          type: 'Data-E ',
-          value: 10,
+          time: '2019-07',
+          value: 470,
+          type: 'uv',
         },
         {
-          type: 'Data-F ',
-          value: 5,
+          time: '2019-03',
+          value: 220,
+          type: 'bill',
+        },
+        {
+          time: '2019-04',
+          value: 300,
+          type: 'bill',
+        },
+        {
+          time: '2019-05',
+          value: 250,
+          type: 'bill',
+        },
+        {
+          time: '2019-06',
+          value: 220,
+          type: 'bill',
+        },
+        {
+          time: '2019-07',
+          value: 362,
+          type: 'bill',
+        },
+      ];
+      const transformData = [
+        {
+          time: '2019-03',
+          count: 800,
+        },
+        {
+          time: '2019-04',
+          count: 600,
+        },
+        {
+          time: '2019-05',
+          count: 400,
+        },
+        {
+          time: '2019-06',
+          count: 380,
+        },
+        {
+          time: '2019-07',
+          count: 220,
         },
       ];
       const config = {
-        appendPadding: 10,
-        data,
-        angleField: 'value',
-        colorField: 'type',
-        radius: 0.7,
-        label: {
-          type: 'outer',
-          content: '{name} {percentage}',
-        },
-        interactions: [
+        data: [uvBillData, transformData],
+        xField: 'time',
+        yField: ['value', 'count'],
+        geometryOptions: [
           {
-            type: 'pie-legend-active',
+            geometry: 'column',
+            isStack: true,
+            seriesField: 'type',
           },
           {
-            type: 'element-active',
+            geometry: 'line',
           },
         ],
         legend: {
             position: 'top',
-          },
+        }
       };
 
-      const chartStyle = { height: 250 };
+      const chartStyle = { height: 329 };
 
   return (
     <Card sx={{ marginLeft: 1, marginRight: 1, marginBottom: 2, border: '0 solid rgba(0, 0, 0, 0.125)', borderRadius: '0.5rem', boxShadow: '0rem 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1), 0rem 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06)' }}>
@@ -86,9 +130,8 @@ const MDPieChart = (props) => {
 
       <CardContent >
         <div style={chartStyle}>
-          <Pie {...config} sx={{ marginTop: 20}} />
+          <DualAxes {...config} />
         </div>
-          
       </CardContent>
 
     </Card>

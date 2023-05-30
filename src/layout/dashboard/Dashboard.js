@@ -12,6 +12,8 @@ import Grid from '@mui/material/Grid';
 import { Stack } from '@mui/material';
 import MDBarChart from '../../components/barchart/MDBarChart';
 import MDPieChart from '../../components/piechart/MDPieChart';
+import MDCollapsibleTable from '../../components/tables/MDCollapsibleTable';
+import MDStackedColLine from '../../components/dualaxischart/MDStackedColLine';
 
 const Dashboard = () => {
   return (
@@ -33,14 +35,21 @@ const Dashboard = () => {
       </Grid>
 
       <Grid container spacing={0.5}>
+        <Grid item xs={12} sm={6} md={8}>
+          <MDBarChart descr="Loreum ipsum discontinue etc" />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <MDPieChart descr="Loreum ipsum discontinue etc" />
+        </Grid>
+      </Grid>
 
-          <Grid item xs={12} sm={6} md={8}>
-            <MDBarChart />
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={4}>
-            <MDPieChart />
-          </Grid>
+      <Grid container spacing={0.5}>
+        <Grid item xs={12} sm={12} md={6}>
+          <MDCollapsibleTable descr="Loreum ipsum discontinue etc" />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
+          <MDStackedColLine />
+        </Grid>
       </Grid>
 
     </Stack>

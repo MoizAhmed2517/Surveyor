@@ -1,15 +1,13 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 // Ant Charts
 import { Column } from '@ant-design/plots';
 
 // Material UI Icons
-import PollIcon from '@mui/icons-material/Poll';
-import CallMadeIcon from '@mui/icons-material/CallMade';
-import CallReceivedIcon from '@mui/icons-material/CallReceived';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 // Material UI components
-import { Box, Stack } from '@mui/material';
+import { Box, Stack, Tooltip, Grid } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Card from "@mui/material/Card";
 import CardActions from '@mui/material/CardActions';
@@ -19,79 +17,55 @@ import Icon from "@mui/material/Icon";
 import Button from '@mui/material/Button';
 import Cookies from 'js-cookie';
 
-const MDBarChart = () => {
-    const data = [
-        {
-          type: '1-3秒',
-          value: 0.16,
-        },
-        {
-          type: '4-10秒',
-          value: 0.125,
-        },
-        {
-          type: '11-30秒',
-          value: 0.24,
-        },
-        {
-          type: '31-60秒',
-          value: 0.19,
-        },
-        {
-          type: '1-3分',
-          value: 0.22,
-        },
-        {
-          type: '3-10分',
-          value: 0.05,
-        },
-        {
-          type: '10-30分',
-          value: 0.01,
-        },
-        {
-          type: '30+分',
-          value: 0.015,
-        },
-      ];
-      const paletteSemanticRed = '#F4664A';
-      const brandColor = '#5B8FF9';
-      const config = {
-        data,
-        xField: 'type',
-        yField: 'value',
-        seriesField: '',
-        color: ({ type }) => {
-          if (type === '10-30分' || type === '30+分') {
-            return paletteSemanticRed;
-          }
-    
-          return brandColor;
-        },
-        label: {
-          content: (originData) => {
-            const val = parseFloat(originData.value);
-    
-            if (val < 0.05) {
-              return (val * 100).toFixed(1) + '%';
-            }
-          },
-          offset: 10,
-        },
-        legend: false,
-        xAxis: {
-          label: {
-            autoHide: true,
-            autoRotate: false,
-          },
-        },
-      };
+const MDBarChart = (props) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    asyncFetch();
+  }, []);
+
+  const asyncFetch = () => {
+    fetch('https://gw.alipayobjects.com/os/antfincdn/PC3daFYjNw/column-data.json')
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => {
+        console.log('fetch data failed', error);
+      });
+  };
+  const config = {
+    data,
+    xField: 'city',
+    yField: 'value',
+    seriesField: 'type',
+    isGroup: true,
+    columnStyle: {
+      radius: [10, 10, 0, 0],
+    },
+    legend: {
+      position: 'top',
+    },
+  };
+
+  const chartStyle = { height: 250 };
 
   return (
-    <Card sx={{ marginLeft: 1, marginRight: 1, marginBottom: 2, border: '0 solid rgba(0, 0, 0, 0.125)', borderRadius: '0.25rem', boxShadow: '0rem 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1), 0rem 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06)' }}>
-        <CardContent>
+    <Card sx={{ marginLeft: 1, marginRight: 1, marginBottom: 2, border: '0 solid rgba(0, 0, 0, 0.125)', borderRadius: '0.5rem', boxShadow: '0rem 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1), 0rem 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06)' }}>
+      <CardContent>
+        <Stack direction="row" spacing={2}>
+          <Typography variant='h6' sx={{ marginTop: -0.55, color: '#646464'}} >KPI heading</Typography>
+          <Tooltip title={props.descr}>
+            <InfoOutlinedIcon sx={{ color: '#646464'}} />
+          </Tooltip>
+        </Stack>
+      </CardContent>
+
+      <Divider sx={{ margin: "0px 15px 0px 15px" }}/>
+
+      <CardContent>
+          <div style={chartStyle}>
             <Column {...config} />
-        </CardContent>
+          </div>
+      </CardContent>
     </Card>
   )
 }
