@@ -13,8 +13,8 @@ import Analysis from './layout/analysis/Analysis';
 function AppRoute() {
   return (
     <Routes>
-      <Route exact path='/' element={<Navbar />} />
-      <Route path='/dashboard' element={<><Navbar /><Dashboard /></>} />
+      {/* <Route exact path='/' element={<Navbar />} /> */}
+      <Route path='/' element={<><Navbar /><Dashboard /></>} />
       <Route path='/survey' element={<><Navbar /><Survey /></>} />
       <Route path='/complain' element={<><Navbar /><Complain /></>} />
       <Route path='/analysis' element={<><Navbar /><Analysis /></>} />

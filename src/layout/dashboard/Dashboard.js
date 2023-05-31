@@ -27,7 +27,7 @@ const Dashboard = () => {
           <MDCardKPI icon={<TrendingUpIcon sx={{fontSize: '60px'}} />} message="Average Response Rate" count="52%" percentage="25" tag="Since last month" arrowSign="1" />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <MDCardKPI icon={<DataSaverOnOutlinedIcon sx={{fontSize: '60px'}} />} message="Net Promoter Score (NPS)" count="87" percentage="2" tag="Since last month" arrowSign="0" />
+          <MDCardKPI icon={<DataSaverOnOutlinedIcon sx={{fontSize: '60px'}} />} message="Net Promoter Score" count="87" percentage="2" tag="Since last month" arrowSign="0" />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <MDCardKPI icon={<WaterfallChartOutlinedIcon sx={{fontSize: '60px'}} />} message="Open-ended Responses" count="42" percentage="25" tag="Since last day" arrowSign="1" />

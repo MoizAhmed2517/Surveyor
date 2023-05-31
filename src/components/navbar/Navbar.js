@@ -28,7 +28,7 @@ import Divider from '@mui/material/Divider';
 const pages = [
     {
       name: 'Dashboard',
-      link: '/dashboard',
+      link: '/',
     },
     {
       name: 'Survey',
@@ -109,7 +109,7 @@ const Navbar = () => {
   }
 
   return (
-    <AppBar position="static" sx={{background: colors[tabColor], marginBottom: 2}}>
+    <AppBar position="sticky" sx={{background: colors[tabColor], marginBottom: 2}}>
       <Container maxWidth="xl" >
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1}} />
@@ -117,7 +117,7 @@ const Navbar = () => {
             variant="h5"
             noWrap
             component="a"
-            href="/dashboard"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
