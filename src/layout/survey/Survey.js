@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 // Material UI Icon
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
@@ -56,12 +57,12 @@ const Survey = () => {
             }}
           >
             <Tooltip title="Create new survey" placement="top">
-              <IconButton >
+              <IconButton component={Link} to="/new-survey">
                 <AddBoxOutlinedIcon sx={{ color: '#F39223' }} />
               </IconButton>
             </Tooltip>
             <Tooltip title="Questionnaire Management" placement="top">
-              <IconButton sx={{ mt: 0.5 }}>
+              <IconButton sx={{ mt: 0.5 }} component={Link} to="/questionnaire">
                 <QuestionAnswerOutlinedIcon sx={{ color: '#F39223' }} />
               </IconButton>
             </Tooltip>
