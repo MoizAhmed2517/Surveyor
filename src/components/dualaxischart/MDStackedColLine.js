@@ -111,7 +111,7 @@ const MDPieChart = (props) => {
         }
       };
 
-      const chartStyle = { height: 329 };
+      const chartStyle = { height: 330 };
 
   return (
     <Card sx={{ marginLeft: 1, marginRight: 1, marginBottom: 2, border: '0 solid rgba(0, 0, 0, 0.125)', borderRadius: '0.5rem', boxShadow: '0rem 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1), 0rem 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06)' }}>

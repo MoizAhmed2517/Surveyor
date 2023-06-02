@@ -1,4 +1,5 @@
 import React from 'react';
+import { useConfirm } from "material-ui-confirm";
 
 // Material UI Icons
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
@@ -22,7 +23,15 @@ import { red } from '@mui/material/colors';
 
 
 const SurveyCard = (props) => {
-  
+
+    const confirm = useConfirm();
+
+    const handleDelete = () => {
+      confirm({ description: `This will permanently delete ${props.title}.` })
+        .then(() => console.log(`${props.title} deleted`))
+        .catch(() => console.log("Deletion cancelled."));
+    };
+
     return (
       <Card sx={{ 
         maxWidth: 435, 
@@ -38,7 +47,7 @@ const SurveyCard = (props) => {
             </Avatar>
           }
           action={
-            <IconButton aria-label="settings">
+            <IconButton aria-label="settings" component={props.LinkComponent} to={props.address} state={{ descr: props.title }}>
               <EditOutlinedIcon />
             </IconButton>
           }
@@ -51,8 +60,8 @@ const SurveyCard = (props) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <DeleteOutlineOutlinedIcon />
+          <IconButton aria-label="add to favorites" onClick={handleDelete}>
+              <DeleteOutlineOutlinedIcon />
           </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />

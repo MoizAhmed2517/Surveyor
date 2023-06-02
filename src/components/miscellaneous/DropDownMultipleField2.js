@@ -11,7 +11,7 @@ const DropDownMultipleField2 = (props) => {
         multiple
         id="tags-outlined"
         options={props.data}
-        getOptionLabel={option => option.question}
+        getOptionLabel={option => option.population}
         filterSelectedOptions
         renderInput={(params) => (
           <TextField

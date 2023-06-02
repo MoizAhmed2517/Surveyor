@@ -11,6 +11,7 @@ import Complain from './layout/complain/Complain';
 import Analysis from './layout/analysis/Analysis';
 import Questionnair from './layout/survey/Questionnair';
 import NewSurvey from './layout/survey/NewSurvey';
+import EditSurvey from './layout/survey/EditSurvey';
 
 function AppRoute() {
   return (
@@ -22,7 +23,7 @@ function AppRoute() {
       <Route path='/analysis' element={<><Navbar /><Analysis /></>} />
       <Route path='/questionnaire' element={<><Navbar /><Questionnair /></>} />
       <Route path='/new-survey' element={<><Navbar /><NewSurvey /></>} />
-      
+      <Route path='/edit-survey' element={<><Navbar /><EditSurvey /></>} />
     </Routes>
   );
 }

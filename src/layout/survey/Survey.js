@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { ConfirmProvider } from "material-ui-confirm";
 
 // Material UI Icon
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
@@ -75,7 +76,9 @@ const Survey = () => {
           {
             dummyData.map((data, index) => (
               <Grid item xs={12} sm={6} md={3} key={index} >
-                <SurveyCard title={data.title} date={data.date} descr={data.descr}/>
+                <ConfirmProvider>
+                  <SurveyCard title={data.title} date={data.date} descr={data.descr} LinkComponent={Link} address="/edit-survey" />
+                </ConfirmProvider>
               </Grid>
             ))
           }

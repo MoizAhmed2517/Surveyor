@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation  } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { ConfirmProvider } from "material-ui-confirm";
 
 // Material UI Icon
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
@@ -73,7 +74,9 @@ const Questionnair = () => {
       >
         <Grid container>
             <Grid item xs={12} md={12}>
+              <ConfirmProvider >
                 <MDStickyheaderSimpleTable />
+              </ConfirmProvider>
             </Grid>
         </Grid>
       </Box>

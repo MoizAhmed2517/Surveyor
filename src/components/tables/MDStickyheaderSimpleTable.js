@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { useConfirm } from "material-ui-confirm";
 
 // Material UI Icons
-
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
@@ -61,6 +61,9 @@ const rows = [
 ];
 
 const MDStickyheaderSimpleTable = () => {
+
+    const confirm = useConfirm();
+
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
   
@@ -71,6 +74,12 @@ const MDStickyheaderSimpleTable = () => {
     const handleChangeRowsPerPage = (event) => {
       setRowsPerPage(+event.target.value);
       setPage(0);
+    };
+
+    const handleDelete = () => {
+      confirm({ description: `This will permanently delete.` })
+        .then(() => console.log(`deleted`))
+        .catch(() => console.log("Deletion cancelled."));
     };
   
     return (
@@ -116,7 +125,7 @@ const MDStickyheaderSimpleTable = () => {
                         <IconButton><EditOutlinedIcon /></IconButton>
                       </TableCell>
                       <TableCell key={del.id} align={del.align}>
-                        <IconButton><DeleteOutlineOutlinedIcon /></IconButton>
+                        <IconButton onClick={handleDelete}><DeleteOutlineOutlinedIcon /></IconButton>
                       </TableCell>
                     </TableRow>
                   );

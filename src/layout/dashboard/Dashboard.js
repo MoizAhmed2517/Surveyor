@@ -14,6 +14,7 @@ import MDBarChart from '../../components/barchart/MDBarChart';
 import MDPieChart from '../../components/piechart/MDPieChart';
 import MDCollapsibleTable from '../../components/tables/MDCollapsibleTable';
 import MDStackedColLine from '../../components/dualaxischart/MDStackedColLine';
+import MDTableDataGrid from '../../components/tables/MDTableDataGrid';
 
 const Dashboard = () => {
   return (
@@ -34,7 +35,7 @@ const Dashboard = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={0.5}>
+      <Grid container>
         <Grid item xs={12} sm={6} md={8}>
           <MDBarChart descr="Loreum ipsum discontinue etc" />
         </Grid>
@@ -43,9 +44,10 @@ const Dashboard = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={0.5}>
+      <Grid container spacing={2}>
         <Grid item xs={12} sm={12} md={6}>
-          <MDCollapsibleTable descr="Loreum ipsum discontinue etc" />
+          {/* <MDCollapsibleTable descr="Loreum ipsum discontinue etc" /> */}
+          <MDTableDataGrid />
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <MDStackedColLine />

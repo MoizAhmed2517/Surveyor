@@ -5,15 +5,14 @@ import Chip from '@mui/material/Chip';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
   
-const DropDownMultipleField = (props) => {
+const DropDownMultipleField2 = (props) => {
   return (
     <Autocomplete
         multiple
         id="tags-outlined"
         options={props.data}
-        getOptionLabel={option => option.question}
-        groupBy={(option) => option.category}
-        // defaultValue={[data[0]]}
+        getOptionLabel={option => option.name}
+        groupBy={(option) => option.type}
         filterSelectedOptions
         renderInput={(params) => (
           <TextField
@@ -26,4 +25,4 @@ const DropDownMultipleField = (props) => {
   )
 }
 
-export default DropDownMultipleField
+export default DropDownMultipleField2
