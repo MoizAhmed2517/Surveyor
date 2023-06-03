@@ -27,25 +27,34 @@ const columns = [
     headerName: 'Status',
     width: 135,
     renderCell: (params) => {
+      let toolttipText;
       let icon;
       switch (params.value) {
         case 'Process':
           icon = <PublishedWithChangesOutlined color="primary" sx={{ marginLeft: 1, marginTop: 1 }} />;
+          toolttipText = "In process";
           break;
         case 'Close':
           icon = <CloseOutlined color="error" sx={{ marginLeft: 1, marginTop: 1 }} />;
+          toolttipText = "Close";
           break;
         case 'Done':
           icon = <DoneOutlined color="success" sx={{ marginLeft: 1, marginTop: 1 }} />;
+          toolttipText = "Resolved";
           break;
         case 'Pending':
           icon = <RunningWithErrorsOutlined color="warning" sx={{ marginLeft: 1, marginTop: 1 }} />;
+          toolttipText = "Pending";
           break;
         default:
           icon = null;
           break;
       }
-      return <span>{icon}</span>;
+      return (
+        <Tooltip title={toolttipText} placement="right">
+            <span>{icon}</span>
+        </Tooltip>
+      );
     },
   },
   { field: 'problem', headerName: 'Problem Description', width: 250 },

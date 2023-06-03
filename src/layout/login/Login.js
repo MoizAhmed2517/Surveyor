@@ -12,8 +12,16 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import { use } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+
+function createData(id, userType, email, password) {
+    return {id, userType, email, password};
+  }
+  
+const dummyUsers = [
+createData( 1, 'admin', 'Admin', '123455'),
+createData( 2, 'user', 'User', '123456'),
+];
 
 function Copyright(props) {
   return (
@@ -35,14 +43,24 @@ const defaultTheme = createTheme();
 export default function SignIn() {
 
   const navigate  = useNavigate();
-  const handleNavigate = () => {
-    navigate('/dashboard');
-  }
+  const [credentials, setCredentials] = React.useState("");
+  const [access, setAccess] = React.useState(false);
+
+  React.useEffect(() => {
+    dummyUsers.map(item => {
+        if(item.email === credentials.email && item.password === credentials.password && item.userType === 'admin') {
+            navigate('/dashboard');
+        } else if(item.email === credentials.email && item.password === credentials.password && item.userType === 'user') {
+            navigate('/survey-user');
+        }
+    })
+  }, [credentials])
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    setCredentials({
       email: data.get('email'),
       password: data.get('password'),
     });
@@ -66,7 +84,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={(e) => handleSubmit(e)} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -96,7 +114,6 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={handleNavigate}
             >
               Sign In
             </Button>

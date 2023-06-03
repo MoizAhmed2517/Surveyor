@@ -87,9 +87,9 @@ const MultipleChoice = (props) => {
                 name="customized-radios"
               >
                 {
-                  props.option.map((item => {
+                  props.option.map(((item, index) => {
                     return(
-                      <FormControlLabel value={item.value} control={<BpRadio />} label={item.label} />
+                      <FormControlLabel value={item.value} control={<BpRadio />} label={item.label} key={index} />
                     )
                   }))
                 }

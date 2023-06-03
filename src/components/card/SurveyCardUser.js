@@ -1,11 +1,10 @@
 import React from 'react';
-import { useConfirm } from "material-ui-confirm";
 
 // Material UI Icons
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ShareIcon from '@mui/icons-material/Share';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 // Material UI components
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -14,16 +13,10 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip';
+import { red } from '@mui/material/colors';
 
-const SurveyCard = (props) => {
-
-    const confirm = useConfirm();
-
-    const handleDelete = () => {
-      confirm({ description: `This will permanently delete ${props.title}.` })
-        .then(() => console.log(`${props.title} deleted`))
-        .catch(() => console.log("Deletion cancelled."));
-    };
+const SurveyCardUser = (props) => {
 
     return (
       <Card sx={{ 
@@ -41,7 +34,7 @@ const SurveyCard = (props) => {
           }
           action={
             <IconButton aria-label="settings" component={props.LinkComponent} to={props.address} state={{ descr: props.title }}>
-              <EditOutlinedIcon />
+              <VisibilityOutlinedIcon />
             </IconButton>
           }
           title={props.title}
@@ -53,15 +46,19 @@ const SurveyCard = (props) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites" onClick={handleDelete}>
-              <DeleteOutlineOutlinedIcon />
-          </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />
           </IconButton>
+          {
+            props.status === "filled" ? 
+                <Chip variant="outlined" icon={<CheckCircleOutlineOutlinedIcon sx={{ fontSize: 18, color: '#fff' }} />} label={props.status} size="small" sx={{ marginLeft: 'auto' }} color="success" /> 
+                :
+                <Chip icon={<CancelOutlinedIcon sx={{ fontSize: 18 }} />} label={props.status} variant="outlined" size="small" sx={{ marginLeft: 'auto' }}/> 
+          }
+          
         </CardActions>
       </Card>
     );
 }
 
-export default SurveyCard
+export default SurveyCardUser

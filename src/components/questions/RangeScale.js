@@ -27,7 +27,7 @@ const RangeScale = (props) => {
             <Grid container spacing={.5}>
     
               <Grid item xs={12}>
-                <Typography variant="body1" sx={{ fontStyle: 'italic' }}>{props.question}</Typography>
+                <Typography variant="body1" sx={{ fontStyle: 'italic', marginBottom: 4 }}>{props.question}</Typography>
               </Grid>
     
               <Grid item xs={12}>
@@ -35,7 +35,7 @@ const RangeScale = (props) => {
                     getAriaLabel={() => 'Temperature range'}
                     value={value}
                     onChange={handleChange}
-                    valueLabelDisplay="auto"
+                    valueLabelDisplay="on"
                     getAriaValueText={valuetext}
                 />
               </Grid>

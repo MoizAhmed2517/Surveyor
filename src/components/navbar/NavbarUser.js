@@ -26,20 +26,12 @@ import Divider from '@mui/material/Divider';
 // Pages
 const pages = [
     {
-      name: 'Dashboard',
-      link: '/dashboard',
-    },
-    {
       name: 'Survey',
-      link: '/survey',
-    },
-    {
-      name: 'Response',
-      link: '/response',
+      link: '/survey-user',
     },
     {
       name: 'Complain',
-      link: '/complain',
+      link: '/complain-user',
     },
   ];
 

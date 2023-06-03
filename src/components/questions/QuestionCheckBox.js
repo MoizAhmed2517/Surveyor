@@ -24,9 +24,9 @@ const QuestionCheckBox = (props) => {
           <Grid item xs={12}>
             <FormGroup>
                 {
-                props.option.map((item => {
+                props.option.map(((item, index) => {
                     return(
-                    <FormControlLabel control={<Checkbox />} label={item.label} />
+                    <FormControlLabel control={<Checkbox />} label={item.label} key={index} />
                     )
                 }))
                 }

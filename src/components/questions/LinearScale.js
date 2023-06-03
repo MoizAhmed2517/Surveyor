@@ -16,11 +16,11 @@ const LinearScale = (props) => {
         <Grid container spacing={.5}>
 
           <Grid item xs={12}>
-            <Typography variant="body1" sx={{ fontStyle: 'italic' }}>{props.question}</Typography>
+            <Typography variant="body1" sx={{ fontStyle: 'italic', marginBottom: 4 }}>{props.question}</Typography>
           </Grid>
 
           <Grid item xs={12}>
-            <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
+            <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="on" />
           </Grid>
 
         </Grid>
