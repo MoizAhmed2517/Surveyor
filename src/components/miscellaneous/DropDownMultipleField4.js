@@ -8,11 +8,9 @@ import TextField from '@mui/material/TextField';
 const DropDownMultipleField2 = (props) => {
   return (
     <Autocomplete
-        multiple
         id="tags-outlined"
         options={props.data}
-        getOptionLabel={option => option.name}
-        groupBy={(option) => option.type}
+        getOptionLabel={option => option.category}
         filterSelectedOptions
         renderInput={(params) => (
           <TextField
