@@ -20,7 +20,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { BorderBottom } from '@mui/icons-material';
 import { Stack } from '@mui/material';
 import Divider from '@mui/material/Divider';
 
@@ -35,16 +34,16 @@ const pages = [
       link: '/survey',
     },
     {
+      name: 'Response',
+      link: '/response',
+    },
+    {
       name: 'Complain',
       link: '/complain',
     },
-    {
-      name: 'Analysis',
-      link: '/analysis',
-    },
   ];
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Logout'];
 const colors = [ 'linear-gradient(195deg, #42424a, #191919)', 'linear-gradient(195deg, #49a3f1, #1A73E8)', 'linear-gradient(195deg, #66BB6A, #43A047)', 'linear-gradient(195deg, #FFA726, #FB8C00)', 'linear-gradient(195deg, #EC407A, #D81B60)', 'linear-gradient(195deg, #EF5350, #E53935)' ]
 const primaryColors = ['#42424a', '#49a3f1', '#66BB6A', '#FFA726', '#EC407A', '#EF5350']
 const activeTabColor = ['#F39223', '#044d95', '#890404', '#202326', '#83062e', '#e3d20e']

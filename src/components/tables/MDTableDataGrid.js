@@ -10,7 +10,6 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Paper, Tooltip, Typography } from '@mui/material';
 import { Card, CardContent } from '@mui/material';
 import Stack from '@mui/material/Stack';
-import Divider from "@mui/material/Divider";
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 80 },

@@ -12,7 +12,6 @@ import Grid from '@mui/material/Grid';
 import { Stack } from '@mui/material';
 import MDBarChart from '../../components/barchart/MDBarChart';
 import MDPieChart from '../../components/piechart/MDPieChart';
-import MDCollapsibleTable from '../../components/tables/MDCollapsibleTable';
 import MDStackedColLine from '../../components/dualaxischart/MDStackedColLine';
 import MDTableDataGrid from '../../components/tables/MDTableDataGrid';
 
