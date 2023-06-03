@@ -27,7 +27,7 @@ import Divider from '@mui/material/Divider';
 const pages = [
     {
       name: 'Dashboard',
-      link: '/',
+      link: '/dashboard',
     },
     {
       name: 'Survey',
@@ -116,7 +116,7 @@ const Navbar = () => {
             variant="h5"
             noWrap
             component="a"
-            href="/"
+            href="/dashboard"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -183,7 +183,7 @@ const Navbar = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/dashboard"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -309,7 +309,7 @@ const Navbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center" component={Link} to="/" sx={{ textDecoration : 'None' }}>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

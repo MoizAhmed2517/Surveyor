@@ -13,12 +13,13 @@ import NewSurvey from './layout/survey/NewSurvey';
 import EditSurvey from './layout/survey/EditSurvey';
 import Response from './layout/response/Response';
 import SurveyFill from './layout/user/SurveyFill';
+import Login from './layout/login/Login';
 
 function AppRoute() {
   return (
     <Routes>
-      {/* <Route exact path='/' element={<Navbar />} /> */}
-      <Route path='/' element={<><Navbar /><Dashboard /></>} />
+      <Route exact path='/' element={<Login />} />
+      <Route path='/dashboard' element={<><Navbar /><Dashboard /></>} />
       <Route path='/survey' element={<><Navbar /><Survey /></>} />
       <Route path='/complain' element={<><Navbar /><Complain /></>} />
       <Route path='/response' element={<><Navbar /><Response /></>} />

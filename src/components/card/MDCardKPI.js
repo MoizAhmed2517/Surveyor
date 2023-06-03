@@ -22,7 +22,7 @@ const MDCardKPI = (props) => {
       <CardContent >
         <Stack direction="row" alignItems="center" spacing={2}>
           <Box pt={1} px={1} py={1}>
-            <Icon sx={{ color: `${Cookies.get('IconColor')}`, width: '60px', height: '60px', marginTop: '-17px' }}>{props.icon}</Icon>
+            <Icon sx={{ color: '#ffb100', width: '60px', height: '60px', marginTop: '-17px' }}>{props.icon}</Icon>
           </Box>
           <Box sx={{ flexGrow: 1 }}></Box>
 
