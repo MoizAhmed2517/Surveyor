@@ -62,7 +62,7 @@ const rows = [
   { id: 1, category: 'Product', status: 'Process', problem: 'Loreum ipsum 123 testing description Loreum ipsum 123 testing descriptionLoreum ipsum 123 testing description', datetime: '2 Days, 3 hours'  },
   { id: 2, category: 'Service', status: 'Close', problem: 'Loreum ipsum 123 testing descriptionLoreum ipsum 123 testing descriptionLoreum ipsum 123 testing description', datetime: '2 Days, 3 hours' },
   { id: 3, category: 'Contract', status: 'Pending', problem: 'Loreum ipsum 123 testing descriptionLoreum ipsum 123 testing descriptionLoreum ipsum 123 testing description', datetime: '2 Days, 3 hours' },
-  { id: 4, category: 'Quality of service', status: 'Pending', problem: 'Loreum ipsum 123 testing descriptionLoreum ipsum 123 testing descriptionLoreum ipsum 123 testing description', datetime: '2 Days, 3 hours' },
+  { id: 4, category: 'Quality of service', status: 'Done', problem: 'Loreum ipsum 123 testing descriptionLoreum ipsum 123 testing descriptionLoreum ipsum 123 testing description', datetime: '2 Days, 3 hours' },
   { id: 5, category: 'Payment', status: 'Process', problem: 'Loreum ipsum 123 testing descriptionLoreum ipsum 123 testing descriptionLoreum ipsum 123 testing description', datetime: '2 Days, 3 hours' },
   { id: 6, category: 'Product', status: 'Done', problem: 'Loreum ipsum 123 testing descriptionLoreum ipsum 123 testing descriptionLoreum ipsum 123 testing description', datetime: '2 Days, 3 hours' },
   { id: 7, category: 'Contract', status: 'Done', problem: 'Loreum ipsum 123 testing descriptionLoreum ipsum 123 testing descriptionLoreum ipsum 123 testing description', datetime: '2 Days, 3 hours' },
