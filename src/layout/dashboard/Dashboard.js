@@ -8,16 +8,29 @@ import DataSaverOnOutlinedIcon from '@mui/icons-material/DataSaverOnOutlined';
 import WaterfallChartOutlinedIcon from '@mui/icons-material/WaterfallChartOutlined';
 
 // Material UI Component
+import { styled, useTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import { Stack } from '@mui/material';
+import { Drawer, Stack, Box } from '@mui/material';
 import MDBarChart from '../../components/barchart/MDBarChart';
 import MDPieChart from '../../components/piechart/MDPieChart';
 import MDStackedColLine from '../../components/dualaxischart/MDStackedColLine';
 import MDTableDataGrid from '../../components/tables/MDTableDataGrid';
 
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+}));
+
 const Dashboard = () => {
   return (
-    <Stack>
+
+    <Box sx={{ flexGrow: 0, p: 0.5, marginLeft: 9, marginTop: -3 }}>
+          {/* <DrawerHeader /> */}
+      <Stack>
 
       <Grid container spacing={0.5}>
         <Grid item xs={12} sm={6} md={3}>
@@ -54,6 +67,10 @@ const Dashboard = () => {
       </Grid>
 
     </Stack>
+
+    </Box>
+
+    
   )
 }
 

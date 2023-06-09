@@ -38,16 +38,16 @@ const MDCardKPI = (props) => {
         <Divider />
       </CardContent>
 
-      <CardContent sx={{ marginBottom: '-10px', marginTop: '-15px' }}>
+      <CardContent sx={{ marginBottom: '-10px', marginTop: '-20px' }}>
         <Stack direction="row" spacing={0.5}>
           <Icon>
             {props.arrowSign == 0 ? 
-              <CallReceivedIcon sx={{ fontSize: 15, marginBottom: '15px', color: `${props.arrowSign == 0 ? 'red' : 'green'}` }} /> 
+              <CallReceivedIcon sx={{ fontSize: 15, marginBottom: '5px', color: `${props.arrowSign == 0 ? 'red' : 'green'}`, marginLeft: 0.9 }} /> 
               : 
-              <CallMadeIcon sx={{ fontSize: 15, marginBottom: '15px', color: `${props.arrowSign == 0 ? 'red' : 'green'}` }} />}
+              <CallMadeIcon sx={{ fontSize: 15, marginBottom: '5px', color: `${props.arrowSign == 0 ? 'red' : 'green'}`, marginLeft: 0.9 }} />}
           </Icon>
-          <Typography variant="caption" sx={{ color: `${props.arrowSign == 0 ? 'red' : 'green'}`  }}>{`${props.percentage}%`}</Typography>
-          <Typography variant="subtile2">{props.tag}</Typography>
+          <Typography variant="subtile2" sx={{ color: `${props.arrowSign == 0 ? 'red' : 'green'}`  }}>{`${props.percentage}%`}</Typography>
+          <Typography variant="subtile2" >{props.tag}</Typography>
         </Stack>
       </CardContent>
       

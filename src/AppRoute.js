@@ -18,13 +18,33 @@ import NavbarUser from './components/navbar/NavbarUser';
 import SurveyUser from './layout/survey/SurveyUser';
 import SurveyFillUser from './layout/user/SurveyFillUser';
 import ComplainUser from './layout/complain/ComplainUser';
+import Sidebar from './components/sidebar/Sidebar';
+import { Box } from '@mui/material';
 
 function AppRoute() {
   return (
     <Routes>
-      <Route exact path='/' element={<Login />} />
+      {/* <Route exact path='/' element={<Login />} /> */}
+
+      <Route 
+        exact 
+        path='/' 
+        element={
+          <Sidebar />
+        } 
+      />
+
       {/* Admin Routes */}
-      <Route path='/dashboard' element={<><Navbar /><Dashboard /></>} />
+
+      <Route 
+        path='/dashboard' 
+        element={
+          <>
+            <Sidebar />
+            <Dashboard />
+          </>
+        } 
+      />
       <Route path='/survey' element={<><Navbar /><Survey /></>} />
       <Route path='/complain' element={<><Navbar /><Complain /></>} />
       <Route path='/response' element={<><Navbar /><Response /></>} />
