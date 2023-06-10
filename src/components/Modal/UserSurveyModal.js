@@ -17,9 +17,9 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: {
-        xs: 200,
-        sm: 300,
-        md: 400
+        xs: 350,
+        sm: 400,
+        md: 450
     },
     bgcolor: 'background.paper',
     boxShadow: 24,
@@ -55,9 +55,9 @@ const UserSurveyModal = (props) => {
                     <Typography variant="body1" textAlign="center" sx={{  color: '#646464', mb: 0.5 }}>Your response has been successfully submited</Typography>
                 </Grid>
                 <Grid item xs={12} textAlign="center">
-                    <Box sx={{ border: "1px solid black", height: { xs: 90, sm: 70, md: 70}, borderRadius: '0.5rem', margin: '10px 30px', paddingTop: '10px', backgroundColor: '#f9f9f9' }}>
+                    <Box sx={{ border: "1px solid black", height: { xs: 80, sm: 70, md: 80}, borderRadius: '0.5rem', margin: '20px 30px', paddingTop: '10px', backgroundColor: '#f9f9f9' }}>
                         <Typography variant="subtitle2" textAlign="center" sx={{  color: '#646464', mb: 0.2 }}>Share this survey with other</Typography>
-                        <IconButton >
+                        <IconButton>
                             <ShareIcon sx={{ color: '#1976d2' }} />
                         </IconButton>
                     </Box>

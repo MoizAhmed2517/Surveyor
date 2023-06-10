@@ -48,60 +48,62 @@ const SurveyFillUser = (props) => {
   const handleCloseModal = () => setOpen(false);
 
   return (
-    <Stack>
+    <Box sx={{ flexGrow: 0, p: 0.5, marginLeft: 9, marginTop: -3 }}>
+        <Stack>
 
-        <Box sx={{
-            margin: {
-                xs: "30px 10px 0px 10px",
-                sm: "30px 10px 0px 10px",
-                md: '10px 100px 0px 100px'
-            },
-        }}>
-            <Card sx={{
-                borderRadius: '0.5rem', 
-                boxShadow: '0rem 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1), 0rem 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06)',
-                mb: 2,
-            }}
-            >
-                <CardContent >
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={12} md={12}>
-                        <Heading title={descr} />
+            <Box sx={{
+                margin: {
+                    xs: "30px 10px 0px 10px",
+                    sm: "30px 10px 0px 10px",
+                    md: '10px 100px 0px 100px'
+                },
+            }}>
+                <Card sx={{
+                    borderRadius: '0.5rem', 
+                    boxShadow: '0rem 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1), 0rem 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06)',
+                    mb: 2,
+                }}
+                >
+                    <CardContent >
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} sm={12} md={12}>
+                            <Heading title={descr} />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={12}>
+                            <Description title={text} />
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={6}>
+                            <InputField fullWidth={true} label="Full Name" variant={true} placeholder="John" />
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={6}>
+                            <InputField fullWidth={true} label="Email Address" variant={true} placeholder="xyz@gmail.com" />
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={12}>
-                        <Description title={text} />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6}>
-                        <InputField fullWidth={true} label="Full Name" variant={true} placeholder="John" />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6}>
-                        <InputField fullWidth={true} label="Email Address" variant={true} placeholder="xyz@gmail.com" />
-                        </Grid>
-                    </Grid>
-                </CardContent>
-            </Card>
+                    </CardContent>
+                </Card>
 
-            <MultipleChoice question="What is color of sky?" option={radioData} />
+                <MultipleChoice question="What is color of sky?" option={radioData} />
 
-            <QuestionCheckBox question="What is color of sky?" option={checkBoxData} />
+                <QuestionCheckBox question="What is color of sky?" option={checkBoxData} />
 
-            <RangeScale question="What is average temperature in USA?" />
+                <RangeScale question="What is average temperature in USA?" />
 
-            <LinearScale question="What your last year score?" />
+                <LinearScale question="What your last year score?" />
 
-            <ShortAnswer question="What your the highest mountain peak in the world?" label="" variant={true} fullWidth={true} placeholder="Write short description" />
+                <ShortAnswer question="What your the highest mountain peak in the world?" label="" variant={true} fullWidth={true} placeholder="Write short description" />
 
-            <Paragraph  question="What your the highest mountain peak in the world?" label="" variant={true} fullWidth={true} placeholder="Write brief description" />
+                <Paragraph  question="What your the highest mountain peak in the world?" label="" variant={true} fullWidth={true} placeholder="Write brief description" />
 
-            <Button fullWidth variant="contained" sx={{ mb: 2 }} endIcon={<SendOutlinedIcon />} onClick={handleOpenModal}>
-                SEND
-            </Button>
+                <Button fullWidth variant="contained" sx={{ mb: 2 }} endIcon={<SendOutlinedIcon />} onClick={handleOpenModal}>
+                    SEND
+                </Button>
 
-            <UserSurveyModal openModal={open} handleClose={handleCloseModal} setOpenState={setOpen} />
+                <UserSurveyModal openModal={open} handleClose={handleCloseModal} setOpenState={setOpen} />
 
-        </Box>
+            </Box>
 
-    </Stack>
+        </Stack>
+    </Box>
   )
 }
 

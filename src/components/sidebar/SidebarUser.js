@@ -5,11 +5,9 @@ import { Link } from 'react-router-dom';
 // Icons
 import SettingsIcon from '@mui/icons-material/Settings';
 import CircleIcon from '@mui/icons-material/Circle';
-import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
-import QueryStatsOutlinedIcon from '@mui/icons-material/QueryStatsOutlined';
-import PreviewOutlinedIcon from '@mui/icons-material/PreviewOutlined';
-import RunningWithErrorsOutlinedIcon from '@mui/icons-material/RunningWithErrorsOutlined';
-import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 
 // Material UI elements
 import { styled, useTheme } from '@mui/material/styles';
@@ -106,42 +104,17 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 // Pages
 const pages = [
-    {
-      name: 'Dashboard',
-      link: '/dashboard',
-      icon: <PollOutlinedIcon />,
-    },
-    {
-      name: 'Survey',
-      link: '/survey',
-      icon: <QueryStatsOutlinedIcon />,
-    },
-    {
-      name: 'Response',
-      link: '/response',
-      icon: <PreviewOutlinedIcon />,
-      subItems: [
-        {
-          name: 'Sub Item 1',
-          link: '/response/subitem1',
-        },
-        {
-          name: 'Sub Item 2',
-          link: '/response/subitem2',
-        },
-      ],
-    },
-    {
-      name: 'Complain',
-      link: '/complain',
-      icon: <RunningWithErrorsOutlinedIcon />,
-    },
-    {
-      name: 'Customer',
-      link: '/customer',
-      icon: <GroupOutlinedIcon />,
-    },
-  ];
+  {
+    name: 'Survey',
+    link: '/survey-user',
+    icon: <InboxIcon />,
+  },
+  {
+    name: 'Complain',
+    link: '/complain-user',
+    icon: <AddAPhotoOutlinedIcon />,
+  },
+];
 
 const settings = ['My profile', 'Logout'];
 const colors = [ 'linear-gradient(195deg, #49a3f1, #1A73E8)', 'linear-gradient(195deg, #42424a, #191919)', 'linear-gradient(195deg, #66BB6A, #43A047)', 'linear-gradient(195deg, #FFA726, #FB8C00)', 'linear-gradient(195deg, #EC407A, #D81B60)', 'linear-gradient(195deg, #EF5350, #E53935)' ]
@@ -437,6 +410,7 @@ const Sidebar = () => {
 
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
+
         </Box>
 
       </Box>

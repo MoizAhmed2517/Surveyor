@@ -9,6 +9,7 @@ import {
   DoneOutlined,
   RunningWithErrorsOutlined,
 } from '@mui/icons-material'
+import DoneAllOutlinedIcon from '@mui/icons-material/DoneAllOutlined';
 
 // Material UI components
 import { DataGrid } from '@mui/x-data-grid';
@@ -35,7 +36,7 @@ const columns = [
           toolttipText = "In process";
           break;
         case 'Close':
-          icon = <CloseOutlined color="error" sx={{ marginLeft: 1, marginTop: 1 }} />;
+          icon = <DoneAllOutlinedIcon color="inherit" sx={{ marginLeft: 1, marginTop: 1 }} />;
           toolttipText = "Close";
           break;
         case 'Done':

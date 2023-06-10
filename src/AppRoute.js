@@ -19,7 +19,8 @@ import SurveyUser from './layout/survey/SurveyUser';
 import SurveyFillUser from './layout/user/SurveyFillUser';
 import ComplainUser from './layout/complain/ComplainUser';
 import Sidebar from './components/sidebar/Sidebar';
-import { Box } from '@mui/material';
+import SidebarUser from './components/sidebar/SidebarUser';
+import Customer from './layout/customer/Customer';
 
 function AppRoute() {
   return (
@@ -30,7 +31,7 @@ function AppRoute() {
         exact 
         path='/' 
         element={
-          <Sidebar />
+          <Login />
         } 
       />
 
@@ -45,17 +46,18 @@ function AppRoute() {
           </>
         } 
       />
-      <Route path='/survey' element={<><Navbar /><Survey /></>} />
-      <Route path='/complain' element={<><Navbar /><Complain /></>} />
-      <Route path='/response' element={<><Navbar /><Response /></>} />
-      <Route path='/questionnaire' element={<><Navbar /><Questionnair /></>} />
-      <Route path='/new-survey' element={<><Navbar /><NewSurvey /></>} />
-      <Route path='/edit-survey' element={<><Navbar /><EditSurvey /></>} />
-      <Route path='/view-response' element={<><Navbar /><SurveyFill /></>} />
+      <Route path='/survey' element={<><Sidebar /><Survey /></>} />
+      <Route path='/complain' element={<><Sidebar /><Complain /></>} />
+      <Route path='/response' element={<><Sidebar /><Response /></>} />
+      <Route path='/questionnaire' element={<><Sidebar /><Questionnair /></>} />
+      <Route path='/new-survey' element={<><Sidebar /><NewSurvey /></>} />
+      <Route path='/edit-survey' element={<><Sidebar /><EditSurvey /></>} />
+      <Route path='/view-response' element={<><Sidebar /><SurveyFill /></>} />
+      <Route path='/customer' element={<><Sidebar /><Customer/> </>} />
       {/* User routes */}
-      <Route path='/survey-user' element={<><NavbarUser /> <SurveyUser /></>} />
-      <Route path='/view-response-user' element={<><NavbarUser /><SurveyFillUser /></>} />
-      <Route path='/complain-user' element={<><NavbarUser /><ComplainUser /></>} />
+      <Route path='/survey-user' element={<><SidebarUser /> <SurveyUser /></>} />
+      <Route path='/view-response-user' element={<><SidebarUser /><SurveyFillUser /></>} />
+      <Route path='/complain-user' element={<><SidebarUser /><ComplainUser /></>} />
     </Routes>
   );
 }

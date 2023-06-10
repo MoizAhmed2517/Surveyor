@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Icons
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import MailLockIcon from '@mui/icons-material/MailLock';
+import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 
 // Material UI components
 import Box from '@mui/material/Box';
@@ -13,11 +13,9 @@ import { Grid } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 
 //  React components
-import DropDownMultipleField4 from '../../components/miscellaneous/DropDownMultipleField4';
 import ButtonCustom from '../../components/miscellaneous/ButtonCustom';
 import InputField from '../../components/miscellaneous/InputField';
-import DragDrop from '../../components/miscellaneous/DragDrop';
-import MDTableDataGridComplainUser from '../../components/tables/MDTableDataGridComplainUser';
+import MDTableDataGridCustomer from '../../components/tables/MDTableDataGridCustomer';
 // Random Data
 
 const data = [
@@ -29,9 +27,7 @@ const data = [
   { category: 'Quality' },
 ];
 
-
-const ComplainUser = () => {
-
+const Customer = () => {
   return (
     <Box sx={{ flexGrow: 0, p: 0.5, marginLeft: 9, marginTop: -3 }}>
       <Stack >
@@ -47,7 +43,7 @@ const ComplainUser = () => {
             <Grid container>
               <Grid item xs={12} sm={6} md={6}>
                 <Stack direction="row" spacing={2}>
-                <Typography variant="h6" sx={{ marginTop: -0.55, color: '#646464'}} >Log Complain</Typography>
+                <Typography variant="h6" sx={{ marginTop: -0.55, color: '#646464'}} >Add User</Typography>
                 <Tooltip title="Log your complain in this section" placement="right">
                   <InfoOutlinedIcon sx={{ color: '#646464' }} />
                 </Tooltip>
@@ -66,19 +62,15 @@ const ComplainUser = () => {
           >
             <CardContent >
               <Grid container spacing={2}>
-                  <Grid item xs={12} sm={12} md={12}>
-                    <DropDownMultipleField4 data={data} label="Please select your complain category" placeholder="Problem" />
+                  <Grid item xs={12} sm={16} md={4}>
+                    <InputField fullWidth={true} label="Full Name" />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={12}>
-                    <InputField fullWidth={true} label="Details" multi={true} />
+                  <Grid item xs={12} sm={16} md={4}>
+                    <InputField fullWidth={true} label="Email" />
                   </Grid>
-                  <Grid item xs={12} sm={12} md={12}>
-                    <DragDrop />
+                  <Grid item xs={12} sm={16} md={4} sx={{ marginTop: 0.9 }}>
+                    <ButtonCustom title="SAVE" iconEnd={<SaveOutlinedIcon />} size="large" fullWidth={true} color="#F39223" hoverColor="#ff8905"/>
                   </Grid>
-                  <Grid item xs={12} sm={12} md={12}>
-                    <ButtonCustom title="LOG COMPLAIN" iconEnd={<MailLockIcon />} size="large" fullWidth={true} color="#F39223" hoverColor="#ff8905" linkComponent={Link} address="/survey-user"/>
-                  </Grid>
-                  
               </Grid>
             </CardContent>
           </Card>
@@ -94,7 +86,7 @@ const ComplainUser = () => {
             <Grid container>
               <Grid item xs={12} sm={6} md={6}>
                 <Stack direction="row" spacing={2}>
-                <Typography variant="h6" sx={{ marginTop: -0.55, color: '#646464'}} >Previous Complain Log</Typography>
+                <Typography variant="h6" sx={{ marginTop: -0.55, color: '#646464'}} >Customer Base</Typography>
                 <Tooltip title="Visit the progress on previous complain" placement="right">
                   <InfoOutlinedIcon sx={{ color: '#646464' }} />
                 </Tooltip>
@@ -114,7 +106,7 @@ const ComplainUser = () => {
           <CardContent >
               <Grid container spacing={2}>
                   <Grid item xs={12} sm={12} md={12}>
-                      <MDTableDataGridComplainUser />
+                      <MDTableDataGridCustomer />
                   </Grid>   
               </Grid>
               </CardContent>
@@ -125,4 +117,4 @@ const ComplainUser = () => {
   )
 }
 
-export default ComplainUser
+export default Customer
