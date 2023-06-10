@@ -88,7 +88,7 @@ const MDTableDataGrid = (props) => {
                 },
             }}
             pageSizeOptions={[5, 10, 15, 20]}
-            checkboxSelection
+            // checkboxSelection
             minwidth={columns.minwidth}
           />
     );

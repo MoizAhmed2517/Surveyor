@@ -16,6 +16,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Paper, Tooltip, Typography } from '@mui/material';
 import { Card, CardContent } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import ComplainModal from '../Modal/ComplainModal';
 
 const columns = [
   { field: 'id', headerName: 'Ticket', width: 80 },
@@ -85,7 +86,20 @@ const rows = [
 ];
 
 const MDTableDataGrid = (props) => {
+
+    const [selectedRow, setSelectedRow] = React.useState({});
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpenModal = () => setOpen(true);
+    const handleCloseModal = () => setOpen(false);
+
+    const handleRowClicks = (params) => {
+      handleOpenModal();
+      setSelectedRow(params.row)
+    }
+
     return (
+        <>
           <DataGrid
             sx={{
               maxHeight: 500,
@@ -96,6 +110,7 @@ const MDTableDataGrid = (props) => {
                 color: 'primary.main',
               },
             }}
+            onRowClick={handleRowClicks}
             rows={rows}
             columns={columns}
             initialState={{
@@ -104,9 +119,12 @@ const MDTableDataGrid = (props) => {
                 },
             }}
             pageSizeOptions={[5, 10, 15, 20]}
-            checkboxSelection
+            // checkboxSelection
             minwidth={columns.minwidth}
           />
+
+          <ComplainModal openModal={open} handleClose={handleCloseModal} setOpenState={setOpen} data={selectedRow} />
+        </>
     );
 }
 

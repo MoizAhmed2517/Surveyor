@@ -5,6 +5,9 @@ import { useConfirm } from "material-ui-confirm";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ShareIcon from '@mui/icons-material/Share';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 
 // Material UI components
 import Card from '@mui/material/Card';
@@ -14,6 +17,7 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip';
 
 const SurveyCard = (props) => {
 
@@ -56,9 +60,13 @@ const SurveyCard = (props) => {
           <IconButton aria-label="add to favorites" onClick={handleDelete}>
               <DeleteOutlineOutlinedIcon />
           </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
+          <IconButton aria-label="share" component={props.LinkComponent} to='/view-form' state={{ descr: props.title }}>
+            <VisibilityOutlinedIcon />
           </IconButton>
+          <IconButton aria-label="share" component={props.LinkComponent} to='/responses' >
+            <BarChartOutlinedIcon />
+          </IconButton>
+          <Chip icon={<MessageOutlinedIcon sx={{ fontSize: 18 }} />} label="40+" variant="outlined" size="small" sx={{ marginLeft: 'auto', paddingLeft: 1 }}/>
         </CardActions>
       </Card>
     );

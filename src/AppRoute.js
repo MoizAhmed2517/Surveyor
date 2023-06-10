@@ -52,7 +52,7 @@ function AppRoute() {
       <Route path='/questionnaire' element={<><Sidebar /><Questionnair /></>} />
       <Route path='/new-survey' element={<><Sidebar /><NewSurvey /></>} />
       <Route path='/edit-survey' element={<><Sidebar /><EditSurvey /></>} />
-      <Route path='/view-response' element={<><Sidebar /><SurveyFill /></>} />
+      <Route path='/view-form' element={<><Sidebar /><SurveyFill /></>} />
       <Route path='/customer' element={<><Sidebar /><Customer/> </>} />
       {/* User routes */}
       <Route path='/survey-user' element={<><SidebarUser /> <SurveyUser /></>} />

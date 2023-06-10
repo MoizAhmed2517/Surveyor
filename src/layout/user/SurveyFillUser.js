@@ -67,16 +67,16 @@ const SurveyFillUser = (props) => {
                     <CardContent >
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={12} md={12}>
-                            <Heading title={descr} />
+                                <Heading title={descr} />
                             </Grid>
                             <Grid item xs={12} sm={12} md={12}>
-                            <Description title={text} />
+                                <Description title={text} />
                             </Grid>
                             <Grid item xs={12} sm={6} md={6}>
-                            <InputField fullWidth={true} label="Full Name" variant={true} placeholder="John" />
+                                <InputField fullWidth={true} label="Full Name" variant={true} placeholder="John" />
                             </Grid>
                             <Grid item xs={12} sm={6} md={6}>
-                            <InputField fullWidth={true} label="Email Address" variant={true} placeholder="xyz@gmail.com" />
+                                <InputField fullWidth={true} label="Email Address" variant={true} placeholder="xyz@gmail.com" />
                             </Grid>
                         </Grid>
                     </CardContent>
@@ -98,7 +98,7 @@ const SurveyFillUser = (props) => {
                     SEND
                 </Button>
 
-                <UserSurveyModal openModal={open} handleClose={handleCloseModal} setOpenState={setOpen} />
+                <UserSurveyModal openModal={open} handleClose={handleCloseModal} setOpenState={setOpen} nav={'/survey-user'} />
 
             </Box>
 

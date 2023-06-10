@@ -1,7 +1,11 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
+
+//  Icons
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
 // MUI components
-import { Box, Grid, IconButton, Stack, Tooltip, Typography, Card, CardContent } from '@mui/material'
+import { Button, Box, Grid, IconButton, Stack, Tooltip, Typography, Card, CardContent } from '@mui/material'
 
 //  React components
 import InputField from '../../components/miscellaneous/InputField';
@@ -13,6 +17,7 @@ import RangeScale from '../../components/questions/RangeScale';
 import LinearScale from '../../components/questions/LinearScale';
 import ShortAnswer from '../../components/questions/ShortAnswer';
 import Paragraph from '../../components/questions/Paragraph';
+import UserSurveyModal from '../../components/Modal/UserSurveyModal';
 
 // Random Data
 const text = "This code should read a single register at each address from 1 to 150 and print the decoded 8-bit integer value. If any exception occurs, the traceback will be printed, providing more information about the error."
@@ -34,6 +39,13 @@ const checkBoxData = [
 ]
 
 const SurveyFill = () => {
+  const locationexist = useLocation();
+  const descr = locationexist.state?.descr;
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpenModal = () => setOpen(true);
+  const handleCloseModal = () => setOpen(false);
+
   return (
     <Box sx={{ flexGrow: 0, p: 0.5, marginLeft: 8, marginTop: -3 }}>
         <Stack>
@@ -54,7 +66,7 @@ const SurveyFill = () => {
                     <CardContent >
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={12} md={12}>
-                            <Heading title="World Tourist Survey" />
+                            <Heading title={descr} />
                             </Grid>
                             <Grid item xs={12} sm={12} md={12}>
                             <Description title={text} />
@@ -80,6 +92,12 @@ const SurveyFill = () => {
                 <ShortAnswer question="What your the highest mountain peak in the world?" label="" variant={true} fullWidth={true} placeholder="Write short description" />
 
                 <Paragraph  question="What your the highest mountain peak in the world?" label="" variant={true} fullWidth={true} placeholder="Write brief description" />
+
+                <Button fullWidth variant="contained" sx={{ mb: 2 }} endIcon={<SendOutlinedIcon />} onClick={handleOpenModal}>
+                    SEND
+                </Button>
+
+                <UserSurveyModal openModal={open} handleClose={handleCloseModal} setOpenState={setOpen} nav={'/survey'} />
 
             </Box>
 

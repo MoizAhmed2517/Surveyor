@@ -35,7 +35,7 @@ const UserSurveyModal = (props) => {
   const navigate = useNavigate();
 
   const handleModalClose = () => {
-    navigate('/survey-user')
+    navigate(props.nav)
     props.setOpenState(false);
   }
 

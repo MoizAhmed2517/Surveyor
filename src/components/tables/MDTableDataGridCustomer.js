@@ -9,16 +9,19 @@ import {
   DoneOutlined,
   RunningWithErrorsOutlined,
 } from '@mui/icons-material'
+import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
+import DatasetLinkedIcon from '@mui/icons-material/DatasetLinked';
 
 // Material UI components
 import { DataGrid } from '@mui/x-data-grid';
 import { Paper, Tooltip, Typography } from '@mui/material';
 import { Card, CardContent } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import ButtonCustom from '../miscellaneous/ButtonCustom';
 
 const columns = [
-  { field: 'id', headerName: 'Customer ID', width: 100 },
-  { field: 'name', headerName: 'Name', width: 350 },
+  { field: 'id', headerName: 'Customer ID', width: 100, align: 'center' },
+  { field: 'name', headerName: 'Name', width: 400 },
   { field: 'email', headerName: 'email', width: 350 },
   {
     field: 'status',
@@ -60,7 +63,16 @@ const rows = [
 ];
 
 const MDTableDataGrid = (props) => {
+    const [selection, setSelection] = React.useState(false);
+    const [selectedIds, setSelectedIds] = React.useState([]);
+
+    const handleRowClicks = (params, events, details) => {
+      setSelection(true)
+      console.log(params.row);
+    };
+
     return (
+        <Stack direction="column" spacing={2}>
           <DataGrid
             sx={{
               maxHeight: 500,
@@ -71,6 +83,7 @@ const MDTableDataGrid = (props) => {
                 color: 'primary.main',
               },
             }}
+            onRowClick={handleRowClicks}
             rows={rows}
             columns={columns}
             initialState={{
@@ -79,9 +92,12 @@ const MDTableDataGrid = (props) => {
                 },
             }}
             pageSizeOptions={[5, 10, 15, 20]}
-            checkboxSelection
+            checkboxSelection={selection}
             minwidth={columns.minwidth}
           />
+
+          <ButtonCustom title="SEND LINK" iconEnd={<DatasetLinkedIcon />} size="large" fullWidth={true} color="#F39223" hoverColor="#ff8905"/>
+        </Stack>
     );
 }
 

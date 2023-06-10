@@ -366,7 +366,7 @@ const Sidebar = () => {
           <Divider />
           <List>
             {pages.map((item, index) => {
-                console.log((item.subItems && open) && item.subItems) 
+                // console.log((item.subItems && open) && item.subItems) 
                 return(
                     <Tooltip key={index} title={item.name} placement='bottom-end'>
                         <ListItem  disablePadding sx={{ display: 'block', my: 0.5 }}>

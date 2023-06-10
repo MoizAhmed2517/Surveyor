@@ -117,22 +117,7 @@ const pages = [
       icon: <QueryStatsOutlinedIcon />,
     },
     {
-      name: 'Response',
-      link: '/response',
-      icon: <PreviewOutlinedIcon />,
-      subItems: [
-        {
-          name: 'Sub Item 1',
-          link: '/response/subitem1',
-        },
-        {
-          name: 'Sub Item 2',
-          link: '/response/subitem2',
-        },
-      ],
-    },
-    {
-      name: 'Complain',
+      name: 'Feedback',
       link: '/complain',
       icon: <RunningWithErrorsOutlinedIcon />,
     },
@@ -393,7 +378,7 @@ const Sidebar = () => {
           <Divider />
           <List>
             {pages.map((item, index) => {
-                console.log((item.subItems && open) && item.subItems) 
+                // console.log((item.subItems && open) && item.subItems) 
                 return(
                     <Tooltip key={index} title={item.name} placement='bottom-end'>
                         <ListItem  disablePadding sx={{ display: 'block', my: 0.5 }}>
