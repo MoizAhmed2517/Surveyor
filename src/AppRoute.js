@@ -21,6 +21,7 @@ import ComplainUser from './layout/complain/ComplainUser';
 import Sidebar from './components/sidebar/Sidebar';
 import SidebarUser from './components/sidebar/SidebarUser';
 import Customer from './layout/customer/Customer';
+import Complement from './layout/complement/Complement';
 
 function AppRoute() {
   return (
@@ -48,6 +49,7 @@ function AppRoute() {
       />
       <Route path='/survey' element={<><Sidebar /><Survey /></>} />
       <Route path='/complain' element={<><Sidebar /><Complain /></>} />
+      <Route path='/complement' element={<><Sidebar /><Complement /></>} />
       <Route path='/response' element={<><Sidebar /><Response /></>} />
       <Route path='/questionnaire' element={<><Sidebar /><Questionnair /></>} />
       <Route path='/new-survey' element={<><Sidebar /><NewSurvey /></>} />

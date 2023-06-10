@@ -7,9 +7,13 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import CircleIcon from '@mui/icons-material/Circle';
 import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
 import QueryStatsOutlinedIcon from '@mui/icons-material/QueryStatsOutlined';
-import PreviewOutlinedIcon from '@mui/icons-material/PreviewOutlined';
 import RunningWithErrorsOutlinedIcon from '@mui/icons-material/RunningWithErrorsOutlined';
 import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import StarBorder from '@mui/icons-material/StarBorder';
+import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
+import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
 
 // Material UI elements
 import { styled, useTheme } from '@mui/material/styles';
@@ -36,6 +40,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Stack } from '@mui/material';
+import Collapse from '@mui/material/Collapse';
 
 const drawerWidth = 240;
 
@@ -104,29 +109,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-// Pages
-const pages = [
-    {
-      name: 'Dashboard',
-      link: '/dashboard',
-      icon: <PollOutlinedIcon />,
-    },
-    {
-      name: 'Survey',
-      link: '/survey',
-      icon: <QueryStatsOutlinedIcon />,
-    },
-    {
-      name: 'Feedback',
-      link: '/complain',
-      icon: <RunningWithErrorsOutlinedIcon />,
-    },
-    {
-      name: 'Customer',
-      link: '/customer',
-      icon: <GroupOutlinedIcon />,
-    },
-  ];
 
 const settings = ['My profile', 'Logout'];
 const colors = [ 'linear-gradient(195deg, #49a3f1, #1A73E8)', 'linear-gradient(195deg, #42424a, #191919)', 'linear-gradient(195deg, #66BB6A, #43A047)', 'linear-gradient(195deg, #FFA726, #FB8C00)', 'linear-gradient(195deg, #EC407A, #D81B60)', 'linear-gradient(195deg, #EF5350, #E53935)' ]
@@ -137,6 +119,7 @@ const iconColor = ['#044d95', '#04951d', '#7f0495', '#6c6c6c', '#a30e0e', '#ffb1
 const Sidebar = () => {
     const theme = useTheme();
     const timeoutRef = React.useRef(null);
+
     // States 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -145,14 +128,15 @@ const Sidebar = () => {
     const [activeTab, setActiveTab] = React.useState(0);
     const [activeTabColors, setActiveTabColors] = React.useState(0);
     const [open, setOpen] = React.useState(false);
+    const [collapseOpen, setCollapseOpen] = React.useState(false);
   
-    const handleDrawerOpen = () => {
-      setOpen(true);
-    };
+    // const handleDrawerOpen = () => {
+    //   setOpen(true);
+    // };
   
-    const handleDrawerClose = () => {
-      setOpen(false);
-    };
+    // const handleDrawerClose = () => {
+    //   setOpen(false);
+    // };
 
     // State functions and mapping functions
     const handleOpenNavMenu = (event) => {
@@ -205,16 +189,21 @@ const Sidebar = () => {
       };
       
     const handleMouseLeave = () => {
-    // Add a delay of 200 milliseconds before closing the menu
-    timeoutRef.current = setTimeout(() => {
-        setOpen(false);
-    }, 200);
+      timeoutRef.current = setTimeout(() => {
+          setOpen(false);
+          setCollapseOpen(false)
+      }, 200);
+      
     };
       
     const handleMouseMove = () => {
-    // Clear the timeout to prevent closing the menu
-    clearTimeout(timeoutRef.current);
+      clearTimeout(timeoutRef.current);
     };
+
+    const handleExpand = (index) => {
+      setActiveTab(index);
+      setCollapseOpen(!collapseOpen);
+    }
   
     return (
       <Box sx={{ display: 'flex' }}>
@@ -377,45 +366,175 @@ const Sidebar = () => {
           </DrawerHeader>
           <Divider />
           <List>
-            {pages.map((item, index) => {
-                // console.log((item.subItems && open) && item.subItems) 
-                return(
-                    <Tooltip key={index} title={item.name} placement='bottom-end'>
-                        <ListItem  disablePadding sx={{ display: 'block', my: 0.5 }}>
-                            <ListItemButton
-                                sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? 'initial' : 'center',
-                                    px: 2.5,
-                                    borderRight: index === activeTab ? `3px inset ${activeTabColor[activeTabColors]}` : '2px inset #ffffff',
-                                    borderRadius: 0,
-                                    color: index === activeTab && activeTabColor[activeTabColors], 
-                                }}
-                                component={Link}
-                                to={item.link}
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                                onMouseMove={handleMouseMove}
-                                onClick={() => handleTabClick(index)}
-                                >
-                                <ListItemIcon
-                                    sx={{
-                                    minWidth: 0,
-                                    mr: open ? 3 : 'auto',
-                                    justifyContent: 'center',
-                                    color: index === activeTab && activeTabColor[activeTabColors],
-                                    }}
-                                >
-                                    {item.icon}
-                                </ListItemIcon>
-                                <ListItemText primary={item.name} sx={{ opacity: open ? 1 : 0 }} component={Link} to={item.link} />
-                            </ListItemButton>
-                        </ListItem>
-                    </Tooltip>
-                )
+            {/* Dashboard Tab */}
+            <Tooltip title={"Dashboard"} placement='bottom-end'>
+              <ListItemButton
+                  sx={{
+                      minHeight: 48,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                      borderRight: 0 === activeTab ? `3px inset ${activeTabColor[activeTabColors]}` : '2px inset #ffffff',
+                      borderRadius: 0,
+                      color: 0 === activeTab && activeTabColor[activeTabColors], 
+                  }}
+                  component={Link}
+                  to='/dashboard'
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onMouseMove={handleMouseMove}
+                  onClick={() => handleTabClick(0)}
+                  >
+                  <ListItemIcon
+                      sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                      color: 0 === activeTab && activeTabColor[activeTabColors],
+                      }}
+                  >
+                      <PollOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} component={Link} to='/dashboard' />
+              </ListItemButton>
+            </Tooltip>
 
-                
-            })}
+            {/* Survey Tab */}
+            <Tooltip title={"Survey"} placement='bottom-end'>
+              <ListItemButton
+                  sx={{
+                      minHeight: 48,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                      borderRight: 1 === activeTab ? `3px inset ${activeTabColor[activeTabColors]}` : '2px inset #ffffff',
+                      borderRadius: 0,
+                      color: 1 === activeTab && activeTabColor[activeTabColors], 
+                  }}
+                  component={Link}
+                  to='/survey'
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onMouseMove={handleMouseMove}
+                  onClick={() => handleTabClick(1)}
+                  >
+                  <ListItemIcon
+                      sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                      color: 1 === activeTab && activeTabColor[activeTabColors],
+                      }}
+                  >
+                      <QueryStatsOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Survey" sx={{ opacity: open ? 1 : 0 }} component={Link} to='/survey' />
+              </ListItemButton>
+            </Tooltip>
+
+            {/* Feedback Tab */}
+            <Tooltip title={"Feedback"} placement='bottom-end'>
+              <ListItemButton
+                  sx={{
+                      minHeight: 48,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                      borderRight: 2 === activeTab ? `3px inset ${activeTabColor[activeTabColors]}` : '2px inset #ffffff',
+                      borderRadius: 0,
+                      color: 2 === activeTab && activeTabColor[activeTabColors], 
+                  }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onMouseMove={handleMouseMove}
+                  onClick={() => handleExpand(2)}
+                  >
+                  <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                        color: 2 === activeTab && activeTabColor[activeTabColors],
+                      }}
+                  >
+                      <RunningWithErrorsOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Feedback" sx={{ opacity: open ? 1 : 0 }} />
+                  {open && (collapseOpen ? <ExpandLess /> : <ExpandMore />) }
+              </ListItemButton>
+            </Tooltip>
+
+            <Collapse in={collapseOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+
+                {/* Complain */}
+                <Tooltip title={"Complains"} placement='bottom-end'>
+                  <ListItemButton 
+                    sx={{ 
+                      pl: 4 
+                    }}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseMove={handleMouseMove}
+                    component={Link}
+                    to='/complain'
+                  >
+                    <ListItemIcon>
+                      <ReportProblemOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Complains" />
+                  </ListItemButton>
+                </Tooltip>
+                {/* Complements */}
+                <Tooltip title={"Complements"} placement='bottom-end'>
+                  <ListItemButton 
+                    sx={{ 
+                      pl: 4 
+                    }}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseMove={handleMouseMove}
+                    component={Link}
+                    to='/complement'
+                  >
+                    <ListItemIcon>
+                      <ThumbUpAltOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Complements" />
+                  </ListItemButton>
+                </Tooltip>
+              </List>
+            </Collapse>
+
+            {/* Customer Tab */}
+            <Tooltip title={"Customer"} placement='bottom-end'>
+              <ListItemButton
+                  sx={{
+                      minHeight: 48,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                      borderRight: 3 === activeTab ? `3px inset ${activeTabColor[activeTabColors]}` : '2px inset #ffffff',
+                      borderRadius: 0,
+                      color: 3 === activeTab && activeTabColor[activeTabColors], 
+                  }}
+                  component={Link}
+                  to='/customer'
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onMouseMove={handleMouseMove}
+                  onClick={() => handleTabClick(3)}
+                  >
+                  <ListItemIcon
+                      sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                      color: 3 === activeTab && activeTabColor[activeTabColors],
+                      }}
+                  >
+                      <GroupOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Customer" sx={{ opacity: open ? 1 : 0 }} component={Link} to='/customer' />
+              </ListItemButton>
+            </Tooltip>
+
           </List>
           
         </Drawer>
