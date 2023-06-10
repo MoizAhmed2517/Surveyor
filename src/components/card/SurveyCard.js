@@ -51,22 +51,29 @@ const SurveyCard = (props) => {
           title={props.title}
           subheader={props.date}
         />
+
         <CardContent>
           <Typography variant="body2" color="text.secondary">
             {props.descr}
           </Typography>
         </CardContent>
+
         <CardActions disableSpacing>
+
           <IconButton aria-label="add to favorites" onClick={handleDelete}>
               <DeleteOutlineOutlinedIcon />
           </IconButton>
+
           <IconButton aria-label="share" component={props.LinkComponent} to='/view-form' state={{ descr: props.title }}>
             <VisibilityOutlinedIcon />
           </IconButton>
-          <IconButton aria-label="share" component={props.LinkComponent} to='/responses' >
+
+          <IconButton aria-label="share" component={props.LinkComponent} to='/form-response' state={{ descr: props.title }}>
             <BarChartOutlinedIcon />
           </IconButton>
+
           <Chip icon={<MessageOutlinedIcon sx={{ fontSize: 18 }} />} label="40+" variant="outlined" size="small" sx={{ marginLeft: 'auto', paddingLeft: 1 }}/>
+        
         </CardActions>
       </Card>
     );

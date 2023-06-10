@@ -22,6 +22,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import SidebarUser from './components/sidebar/SidebarUser';
 import Customer from './layout/customer/Customer';
 import Complement from './layout/complement/Complement';
+import FormResponse from './layout/response/FormResponse';
 
 function AppRoute() {
   return (
@@ -56,6 +57,7 @@ function AppRoute() {
       <Route path='/edit-survey' element={<><Sidebar /><EditSurvey /></>} />
       <Route path='/view-form' element={<><Sidebar /><SurveyFill /></>} />
       <Route path='/customer' element={<><Sidebar /><Customer/> </>} />
+      <Route path='/form-response' element={<><Sidebar /><FormResponse /> </>} />
       {/* User routes */}
       <Route path='/survey-user' element={<><SidebarUser /> <SurveyUser /></>} />
       <Route path='/view-response-user' element={<><SidebarUser /><SurveyFillUser /></>} />

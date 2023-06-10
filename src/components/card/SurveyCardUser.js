@@ -15,8 +15,18 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import { red } from '@mui/material/colors';
+import SubscirbeDialog from '../Dialog/SubscirbeDialog';
 
 const SurveyCardUser = (props) => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };
 
     return (
       <Card sx={{ 
@@ -46,7 +56,7 @@ const SurveyCardUser = (props) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="share">
+          <IconButton aria-label="share" onClick={handleClickOpen}>
             <ShareIcon />
           </IconButton>
           {
@@ -57,6 +67,7 @@ const SurveyCardUser = (props) => {
           }
           
         </CardActions>
+        <SubscirbeDialog open={open} handleState={handleClose} />
       </Card>
     );
 }

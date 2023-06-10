@@ -18,6 +18,8 @@ import { Paper, Tooltip, Typography } from '@mui/material';
 import { Card, CardContent } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import ButtonCustom from '../miscellaneous/ButtonCustom';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const columns = [
   { field: 'id', headerName: 'Customer ID', width: 100, align: 'center' },
@@ -62,6 +64,16 @@ const rows = [
   { id: 7, name: 'Tom Cruise', email: 'jsmith@exmaple.com', status: "Assign"},
 ];
 
+const formList = [
+  'New Survey Form - A',
+  'New Survey Form - B',
+  'New Survey Form - C',
+  'New Survey Form - D',
+  'New Survey Form - E',
+  'New Survey Form - F',
+  'New Survey Form - G',
+];
+
 const MDTableDataGrid = (props) => {
     const [selection, setSelection] = React.useState(false);
     const [selectedIds, setSelectedIds] = React.useState([]);
@@ -94,6 +106,14 @@ const MDTableDataGrid = (props) => {
             pageSizeOptions={[5, 10, 15, 20]}
             checkboxSelection={selection}
             minwidth={columns.minwidth}
+          />
+
+          <Autocomplete
+            fullWidth
+            disablePortal
+            id="combo-box-demo"
+            options={formList}
+            renderInput={(params) => <TextField {...params} label="Select Survey Form" />}
           />
 
           <ButtonCustom title="SEND LINK" iconEnd={<DatasetLinkedIcon />} size="large" fullWidth={true} color="#F39223" hoverColor="#ff8905"/>

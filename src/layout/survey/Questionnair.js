@@ -18,8 +18,20 @@ import { Grid } from '@mui/material';
 // React components
 import Searchbar from '../../components/searchbar/Searchbar'
 import MDStickyheaderSimpleTable from '../../components/tables/MDStickyheaderSimpleTable';
+import NewQuestionDialog from '../../components/Dialog/NewQuestionDialog';
 
 const Questionnair = () => {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Box sx={{ flexGrow: 0, p: 0.5, marginLeft: 9, marginTop: -3 }}>
       <Stack >
@@ -52,18 +64,20 @@ const Questionnair = () => {
                 paddingLeft: {
                   xs: 1.8, 
                   sm: 12.6, 
-                  md: 19.2, 
+                  md: 18, 
                 },
               }}
             >
               <Tooltip title="Add new question" placement="top">
-                <IconButton >
+                <IconButton onClick={handleClickOpen}>
                   <AddBoxOutlinedIcon sx={{ color: '#F39223' }} />
                 </IconButton>
               </Tooltip>
             </Grid>
           </Grid>
         </Box>
+
+        <NewQuestionDialog open={open} handleState={handleClose} /> 
 
         <Box sx={{
               margin: {
