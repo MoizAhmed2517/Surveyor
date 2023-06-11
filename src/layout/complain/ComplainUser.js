@@ -91,8 +91,8 @@ const ComplainUser = () => {
                 }
             }}
           > 
-            <Grid container>
-              <Grid item xs={12} sm={6} md={6}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6} md={6} sx={{ my: { xs: 2, md: 0}, marginTop: { md: 2 }}}>
                 <Stack direction="row" spacing={2}>
                 <Typography variant="h6" sx={{ marginTop: -0.55, color: '#646464'}} >Previous Complain Log</Typography>
                 <Tooltip title="Visit the progress on previous complain" placement="right">
@@ -105,7 +105,7 @@ const ComplainUser = () => {
 
           <Card sx={{
               margin: {
-                  xs: "10px 100px -10px 10px",
+                  xs: "10px 10px -10px 10px",
                   sm: "10px 100px -10px 10px",
                   md: '10px 100px 10px 100px'
                 }

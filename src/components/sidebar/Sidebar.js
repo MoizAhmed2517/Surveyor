@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
+import profileImage from '../../static/images/avatar.jpg'
 
 // Icons
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -110,7 +111,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 
-const settings = ['My profile', 'Logout'];
+const settings = [
+  {name: 'My profile', link: '/my-profile'}, 
+  {name: 'Logout', link: '/login'},
+];
 const colors = [ 'linear-gradient(195deg, #49a3f1, #1A73E8)', 'linear-gradient(195deg, #42424a, #191919)', 'linear-gradient(195deg, #66BB6A, #43A047)', 'linear-gradient(195deg, #FFA726, #FB8C00)', 'linear-gradient(195deg, #EC407A, #D81B60)', 'linear-gradient(195deg, #EF5350, #E53935)' ]
 const primaryColors = [ '#49a3f1', '#42424a', '#66BB6A', '#FFA726', '#EC407A', '#EF5350']
 const activeTabColor = ['#F39223', '#044d95', '#890404', '#202326', '#83062e', '#e3d20e']
@@ -266,9 +270,9 @@ const Sidebar = () => {
                 </IconButton>
                 </Tooltip>
 
-                <Tooltip title="Profile">
+                <Tooltip title="John DeSouza">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, marginLeft: 'auto' }}>
-                    <Avatar alt="Moiz Ahmed" src="./statics/images/avater.jpg" />
+                    <Avatar alt="Moiz Ahmed" src={profileImage} />
                 </IconButton>
                 </Tooltip>
 
@@ -346,9 +350,9 @@ const Sidebar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
                 >
-                {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center" component={Link} to="/" sx={{ textDecoration : 'None' }}>{setting}</Typography>
+                {settings.map((setting, index) => (
+                    <MenuItem key={index} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center" component={Link} to={setting.link} sx={{ textDecoration : 'None' }}>{setting.name}</Typography>
                     </MenuItem>
                 ))}
                 </Menu>

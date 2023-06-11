@@ -23,6 +23,9 @@ import SidebarUser from './components/sidebar/SidebarUser';
 import Customer from './layout/customer/Customer';
 import Complement from './layout/complement/Complement';
 import FormResponse from './layout/response/FormResponse';
+import AdminProfile from './layout/profile/AdminProfile';
+import LandingHome from './layout/landingpage/LandingHome';
+import SignUp from './layout/signup/SignUp';
 
 function AppRoute() {
   return (
@@ -33,7 +36,21 @@ function AppRoute() {
         exact 
         path='/' 
         element={
+          <LandingHome />
+        } 
+      />
+
+      <Route 
+        path='/login' 
+        element={
           <Login />
+        } 
+      />
+
+      <Route 
+        path='/signup' 
+        element={
+          <SignUp />
         } 
       />
 
@@ -58,6 +75,7 @@ function AppRoute() {
       <Route path='/view-form' element={<><Sidebar /><SurveyFill /></>} />
       <Route path='/customer' element={<><Sidebar /><Customer/> </>} />
       <Route path='/form-response' element={<><Sidebar /><FormResponse /> </>} />
+      <Route path='/my-profile' element={<><Sidebar /><AdminProfile /></>} />
       {/* User routes */}
       <Route path='/survey-user' element={<><SidebarUser /> <SurveyUser /></>} />
       <Route path='/view-response-user' element={<><SidebarUser /><SurveyFillUser /></>} />

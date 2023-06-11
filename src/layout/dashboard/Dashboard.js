@@ -14,7 +14,7 @@ import { Drawer, Stack, Box } from '@mui/material';
 import MDBarChart from '../../components/barchart/MDBarChart';
 import MDPieChart from '../../components/piechart/MDPieChart';
 import MDStackedColLine from '../../components/dualaxischart/MDStackedColLine';
-import MDTableDataGrid from '../../components/tables/MDTableDataGrid';
+import MDTableDataGridDashboard from '../../components/tables/MDTableDataGridDashboard';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -28,42 +28,42 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const Dashboard = () => {
   return (
 
-    <Box sx={{ flexGrow: 0, p: 0.5, marginLeft: 9, marginTop: -3 }}>
+    <Box sx={{ flexGrow: 0, p: 0.5, marginLeft: {xs: 7, sm: 8,  md: 9}, marginTop: -3 }}>
           {/* <DrawerHeader /> */}
       <Stack>
 
       <Grid container spacing={0.5}>
         <Grid item xs={12} sm={6} md={3}>
-          <MDCardKPI icon={<AssessmentOutlinedIcon sx={{fontSize: '60px'}} />} message="Total Survey Created" count="281" percentage="20.1" tag="Since last day" arrowSign="0"/>
+          <MDCardKPI icon={<AssessmentOutlinedIcon sx={{fontSize: '60px'}} />} message="Number of Survey" count="281" percentage="20.1" tag="Since last day" arrowSign="0"/>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <MDCardKPI icon={<TrendingUpIcon sx={{fontSize: '60px'}} />} message="Average Response Rate" count="52%" percentage="25" tag="Since last month" arrowSign="1" />
+          <MDCardKPI icon={<TrendingUpIcon sx={{fontSize: '60px'}} />} message="Number of Feedback" count="52" percentage="25" tag="Since last month" arrowSign="1" />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <MDCardKPI icon={<DataSaverOnOutlinedIcon sx={{fontSize: '60px'}} />} message="Net Promoter Score" count="87" percentage="2" tag="Since last month" arrowSign="0" />
+          <MDCardKPI icon={<DataSaverOnOutlinedIcon sx={{fontSize: '60px'}} />} message="Number of Complains" count="87" percentage="2" tag="Since last month" arrowSign="0" />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <MDCardKPI icon={<WaterfallChartOutlinedIcon sx={{fontSize: '60px'}} />} message="Open-ended Responses" count="42" percentage="25" tag="Since last day" arrowSign="1" />
+          <MDCardKPI icon={<WaterfallChartOutlinedIcon sx={{fontSize: '60px'}} />} message="Survey Reponse Rate" count="42%" percentage="25" tag="Since last day" arrowSign="1" />
         </Grid>
       </Grid>
 
       <Grid container>
-        <Grid item xs={12} sm={6} md={8}>
+        <Grid item xs={12} sm={12} md={8}>
           <MDBarChart descr="Loreum ipsum discontinue etc" />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={12} md={4}>
           <MDPieChart descr="Loreum ipsum discontinue etc" />
         </Grid>
       </Grid>
 
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={12} md={6}>
+        <Grid item xs={12} sm={12} md={12} sx={{ mr: {xs: 2, sm: 5, md: 1}, ml: 1 }}>
           {/* <MDCollapsibleTable descr="Loreum ipsum discontinue etc" /> */}
-          <MDTableDataGrid />
+          <MDTableDataGridDashboard />
         </Grid>
-        <Grid item xs={12} sm={12} md={6}>
+        {/* <Grid item xs={12} sm={12} md={6}>
           <MDStackedColLine />
-        </Grid>
+        </Grid> */}
       </Grid>
 
     </Stack>

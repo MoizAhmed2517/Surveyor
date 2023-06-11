@@ -43,7 +43,7 @@ const SubscirbeDialog = (props) => {
             </DialogContent>
             <DialogActions>
             <Button onClick={handleSubscribe}>Cancel</Button>
-            <Button onClick={handleSubscribe}>Subscribe</Button>
+            <Button onClick={handleSubscribe}>Share</Button>
             </DialogActions>
         </Dialog>
     );

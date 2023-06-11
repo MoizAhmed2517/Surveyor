@@ -20,29 +20,21 @@ import Cookies from 'js-cookie';
 const MDPieChart = (props) => {
     const data = [
         {
-          type: 'Data-A ',
+          type: 'In Process',
           value: 27,
         },
         {
-          type: 'Data-B ',
+          type: 'Resolved',
           value: 25,
         },
         {
-          type: 'Data-C ',
+          type: 'Pending',
           value: 18,
         },
         {
-          type: 'Data-D ',
+          type: 'Close',
           value: 15,
-        },
-        {
-          type: 'Data-E ',
-          value: 10,
-        },
-        {
-          type: 'Data-F ',
-          value: 5,
-        },
+        }
       ];
       const config = {
         appendPadding: 10,
@@ -74,7 +66,7 @@ const MDPieChart = (props) => {
       
       <CardContent>
         <Stack direction="row" spacing={1}>
-          <Typography variant='h6' sx={{ marginTop: -0.55, color: '#646464'}} >KPI heading</Typography>
+          <Typography variant='h6' sx={{ marginTop: -0.55, color: '#646464'}} >Complain Status</Typography>
           <Tooltip title={props.descr}>
             <InfoOutlinedIcon sx={{ color: '#646464'}} />
           </Tooltip>
