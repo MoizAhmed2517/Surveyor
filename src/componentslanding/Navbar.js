@@ -83,7 +83,7 @@ const Navbar = (props) => {
                         fontFamily: 'monospace',
                         fontWeight: 1000,
                         letterSpacing: '.2rem',
-                        color: 'inherit',
+                        color: 'rgb(0, 191, 111)',
                         textDecoration: 'none',
                     }}
                 >
@@ -100,7 +100,7 @@ const Navbar = (props) => {
                         fontFamily: 'monospace',
                         fontWeight: 1000,
                         letterSpacing: '.2rem',
-                        color: 'inherit',
+                        color: 'rgb(0, 191, 111)',
                         textDecoration: 'none',
                     }}
                 >
