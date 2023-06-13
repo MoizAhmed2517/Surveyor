@@ -9,6 +9,8 @@ import TypeAnimationFont from '../../componentslanding/TypeAnimationFont';
 import MidCard from '../../componentslanding/MidCard';
 import LogoGrid from '../../componentslanding/LogoGrid';
 import CardsInfo from '../../componentslanding/CardsInfo';
+import Banner from '../../componentslanding/Banner';
+import BannerCard from '../../componentslanding/BannerCard';
 
 const LandingHome = () => {
     return (
@@ -61,6 +63,23 @@ const LandingHome = () => {
             <Typography variant="body" sx={{ my: 2, fontWeight: 400, textAlign: 'center', fontSize: 18  }}>Get an individual plan with features that you need, or create a team instead!</Typography>
             
             <CardsInfo />
+
+            <Banner />
+
+            <Typography variant="h4" sx={{ fontWeight: 500, textAlign: 'center' }}>Start with an expert-written template</Typography>
+            <Typography variant="body" sx={{ mb: 8, my: 2, fontWeight: 400, textAlign: 'center', fontSize: 18, marginLeft: 'auto', marginRight: 'auto', width: '50%' }}>
+                Our sample survey templates make it easy for you to start collecting feedback in just minutes. Explore hundreds of questions across different survey types, all designed to get you accurate results you can rely on.
+            </Typography>
+
+            <Typography variant="h4" sx={{ fontWeight: 500, textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', width: '40%' }}>Tools that spark business breakthroughs</Typography>
+            <Typography variant="body" sx={{ mb: 8, my: 2, fontWeight: 400, textAlign: 'center', fontSize: 18, marginLeft: 'auto', marginRight: 'auto', width: '50%' }}>
+                Discover specialized toolkits designed for your role and industry.
+            </Typography>
+
+            <BannerCard />
+
+            <Typography variant="h4" sx={{ mt: 14, fontWeight: 500, textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', width: '40%' }}>More toolkits for industry leaders</Typography>
+                         
         </Stack>
     )
 }
