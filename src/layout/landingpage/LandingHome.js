@@ -3,7 +3,7 @@ import Navbar from '../../componentslanding/Navbar'
 import '../../landing.css'
 
 // Material Ui Component
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Box, Button, Stack, Typography, Grid, Divider } from '@mui/material'
 import Container from '@mui/material/Container';
 import TypeAnimationFont from '../../componentslanding/TypeAnimationFont';
 import MidCard from '../../componentslanding/MidCard';
@@ -11,6 +11,11 @@ import LogoGrid from '../../componentslanding/LogoGrid';
 import CardsInfo from '../../componentslanding/CardsInfo';
 import Banner from '../../componentslanding/Banner';
 import BannerCard from '../../componentslanding/BannerCard';
+import ButtonCards from '../../componentslanding/ButtonCards';
+import FeedbackBanner from '../../componentslanding/FeedbackBanner';
+import CuriousBanner from '../../componentslanding/CuriousBanner';
+import DefBanner from '../../componentslanding/DefBanner';
+import Footer from '../../componentslanding/Footer';
 
 const LandingHome = () => {
     return (
@@ -79,7 +84,27 @@ const LandingHome = () => {
             <BannerCard />
 
             <Typography variant="h4" sx={{ mt: 14, fontWeight: 500, textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', width: '40%' }}>More toolkits for industry leaders</Typography>
-                         
+
+            <ButtonCards />
+
+            <Box sx={{ display: 'flex', justifyContent: 'center', my: 8 }}>
+                <Button variant="contained" sx={{ color: '#000', backgroundColor: '#f8f9fa', boxShadow: 'none', border: '1px black solid', '&:hover': { backgroundColor: '#f8f9fa', boxShadow: 'none', } }}>View all</Button>
+            </Box>
+
+            <FeedbackBanner />
+
+            <CuriousBanner />
+
+            {/* <DefBanner /> */}
+
+            <Box sx={{ mx: 'auto', my: 4, width: '95%'  }}>
+                <Divider />
+            </Box>
+
+            <Footer />
+
+
+            
         </Stack>
     )
 }
