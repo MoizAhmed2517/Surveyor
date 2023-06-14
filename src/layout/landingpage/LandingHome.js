@@ -16,6 +16,7 @@ import FeedbackBanner from '../../componentslanding/FeedbackBanner';
 import CuriousBanner from '../../componentslanding/CuriousBanner';
 import DefBanner from '../../componentslanding/DefBanner';
 import Footer from '../../componentslanding/Footer';
+import TemplateMesh from '../../componentslanding/TemplateMesh';
 
 const LandingHome = () => {
     return (
@@ -75,6 +76,8 @@ const LandingHome = () => {
             <Typography variant="body" sx={{ mb: 8, my: 2, fontWeight: 400, textAlign: 'center', fontSize: 18, marginLeft: 'auto', marginRight: 'auto', width: '50%' }}>
                 Our sample survey templates make it easy for you to start collecting feedback in just minutes. Explore hundreds of questions across different survey types, all designed to get you accurate results you can rely on.
             </Typography>
+
+            <TemplateMesh />
 
             <Typography variant="h4" sx={{ fontWeight: 500, textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', width: '40%' }}>Tools that spark business breakthroughs</Typography>
             <Typography variant="body" sx={{ mb: 8, my: 2, fontWeight: 400, textAlign: 'center', fontSize: 18, marginLeft: 'auto', marginRight: 'auto', width: '50%' }}>

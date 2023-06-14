@@ -1,11 +1,16 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
-
+import bg from  '../../static/images/bg3.jpg';
 //  Icons
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
 // MUI components
-import { Box, Grid, IconButton, Stack, Tooltip, Typography, Card, CardContent, Button } from '@mui/material'
+import { Box, Grid, IconButton, Stack, Tooltip, Typography, Card, CardContent, Button, Divider } from '@mui/material'
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 //  React components
 import InputField from '../../components/miscellaneous/InputField';
@@ -18,6 +23,8 @@ import LinearScale from '../../components/questions/LinearScale';
 import ShortAnswer from '../../components/questions/ShortAnswer';
 import Paragraph from '../../components/questions/Paragraph';
 import UserSurveyModal from '../../components/Modal/UserSurveyModal';
+import InfoCards from '../../components/questions/InfoCards';
+import ProgressBar from '../../components/questions/ProgressBar';
 
 // Random Data
 const text = "This code should read a single register at each address from 1 to 150 and print the decoded 8-bit integer value. If any exception occurs, the traceback will be printed, providing more information about the error."
@@ -26,7 +33,7 @@ const radioData = [
     {value: 'blue' , label: 'Blue'},
     {value: 'green' , label: 'Green'},
     {value: 'red' , label: 'Red'},
-    {value: 'orange' , label: 'Orange'},
+    {value: 'orange' , label: 'OrangeBlue'},
 ]
 
 const checkBoxData = [
@@ -43,66 +50,85 @@ const SurveyFillUser = (props) => {
   const locationexist = useLocation();
   const descr = locationexist.state?.descr;
   const [open, setOpen] = React.useState(false);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  const cardContentRef = React.useRef(null);
 
   const handleOpenModal = () => setOpen(true);
   const handleCloseModal = () => setOpen(false);
 
+  const handleScroll = () => {
+    if (cardContentRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = cardContentRef.current;
+      const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
+      setScrollProgress(progress);
+    }
+  };
+
+  React.useEffect(() => {
+    if (cardContentRef.current) {
+      cardContentRef.current.addEventListener('scroll', handleScroll);
+    }
+    return () => {
+      if (cardContentRef.current) {
+        cardContentRef.current.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, []);
+
+
   return (
-    <Box sx={{ flexGrow: 0, p: 0.5, marginLeft: 9, marginTop: -3 }}>
-        <Stack>
+    <Box sx={{ mt: -6, backgroundImage: `url(${bg})`, backgroundSize: 'cover' }}>
+        <Box sx={{ flexGrow: 0, p: 0.5, marginLeft: 9, marginTop: -3,  }}>
+            <Stack>
 
-            <Box sx={{
-                margin: {
-                    xs: "30px 10px 0px 10px",
-                    sm: "30px 10px 0px 10px",
-                    md: '10px 100px 0px 100px'
-                },
-            }}>
-                <Card sx={{
-                    borderRadius: '0.5rem', 
-                    boxShadow: '0rem 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1), 0rem 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06)',
-                    mb: 2,
-                }}
-                >
-                    <CardContent >
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} sm={12} md={12}>
-                                <Heading title={descr} />
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={12}>
-                                <Description title={text} />
-                            </Grid>
-                            <Grid item xs={12} sm={6} md={6}>
-                                <InputField fullWidth={true} label="Full Name" variant={true} placeholder="John" />
-                            </Grid>
-                            <Grid item xs={12} sm={6} md={6}>
-                                <InputField fullWidth={true} label="Email Address" variant={true} placeholder="xyz@gmail.com" />
-                            </Grid>
-                        </Grid>
-                    </CardContent>
-                </Card>
+                <Box sx={{
+                    margin: {
+                        xs: "10px 10px 0px -5px",
+                        sm: "30px 10px 0px 10px",
+                        md: '10px 100px 0px 100px'
+                    },
+                    
+                }}>
+                    <Card sx={{
+                        borderRadius: 'none',
+                        border: '1px solid rgba( 255, 255, 255, 0.5 )',
+                        background: 'rgba( 255, 255, 255, 0.2 );',
+                        boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
+                        backdropFilter: 'blur( 5.5px )',
+                        WebkitBackdropFilter: 'blur( 5.5px )',
+                        mb: 2,
+                    }}
+                    >
+                        <CardContent >
+                            <InfoCards descr={locationexist.state?.descr} text={text} />
+                            <ProgressBar progress={scrollProgress} />
+                        </CardContent>
+                        <CardContent sx={{ height: '44.7vh', overflowY: 'scroll' }} ref={cardContentRef}>
+                             <MultipleChoice question={`${1}. Do you have thoughts you would like to share`} option={radioData} />
+                             <Divider sx={{ mt: 3,mb: 2, width:'20%', mx: 'auto', color: '#000' }} />
+                             <QuestionCheckBox question={`${2}. What is color of sky?`} option={checkBoxData} />
+                             <Divider sx={{ mt: 3,mb: 2, width:'20%', mx: 'auto', color: '#000' }} />
+                             <RangeScale question={`${3}. What is average temperature in USA?`} />
+                             <Divider sx={{ mt: 3,mb: 2, width:'20%', mx: 'auto', color: '#000' }} />
+                             <ShortAnswer question={`${4}. What your the highest mountain peak in the world?`} label="" variant={false} fullWidth={true} placeholder="Write short description" />
+                             <Divider sx={{ mt: 3,mb: 2, width:'20%', mx: 'auto', color: '#000' }} />
+                             <LinearScale question={`${5}. What your last year score?`} />
+                             <Divider sx={{ mt: 3,mb: 2, width:'20%', mx: 'auto', color: '#000' }} />
+                             <Paragraph question={`${6}. What your the highest mountain peak in the world?`} label="" variant={false} fullWidth={true} placeholder="Write brief description" />
+                        </CardContent>
+                        <CardContent>
+                            <Button fullWidth variant="contained" sx={{ mb: 0.5, mt: 3 }} endIcon={<SendOutlinedIcon />} onClick={handleOpenModal}>
+                                SEND
+                            </Button>
+                        </CardContent>
+                    </Card>
 
-                <MultipleChoice question="What is color of sky?" option={radioData} />
-
-                <QuestionCheckBox question="What is color of sky?" option={checkBoxData} />
-
-                <RangeScale question="What is average temperature in USA?" />
-
-                <LinearScale question="What your last year score?" />
-
-                <ShortAnswer question="What your the highest mountain peak in the world?" label="" variant={true} fullWidth={true} placeholder="Write short description" />
-
-                <Paragraph  question="What your the highest mountain peak in the world?" label="" variant={true} fullWidth={true} placeholder="Write brief description" />
-
-                <Button fullWidth variant="contained" sx={{ mb: 2 }} endIcon={<SendOutlinedIcon />} onClick={handleOpenModal}>
-                    SEND
-                </Button>
+                </Box>
 
                 <UserSurveyModal openModal={open} handleClose={handleCloseModal} setOpenState={setOpen} nav={'/survey-user'} />
 
-            </Box>
-
-        </Stack>
+            </Stack>
+        </Box>
     </Box>
   )
 }

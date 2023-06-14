@@ -7,7 +7,13 @@ const FeedbackBanner = () => {
   return (
     <Box sx={{
         bgcolor: '#f5f5f5',
-        height: '130vh',
+        height: {
+            xs: '1500px',
+            sm: '500px',
+            md: '500px',
+            lg: '900px',
+            xl: '800px',
+        },
         mb: 2, 
         mt: 4
     }}>

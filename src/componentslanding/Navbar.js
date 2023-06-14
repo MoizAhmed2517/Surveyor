@@ -110,7 +110,7 @@ const Navbar = (props) => {
                 <Box sx={{ marginLeft: 'auto' }}>
 
                     <Button sx={{ mr: 2, color: 'black' }} component={Link} to="/login">Log in</Button>
-                    <Button sx={{ mr: { xs: 2, md: 8}, bgcolor: '#f9be00', '&:hover': { bgcolor: '#f9be00' } }} variant="contained" component={Link} to="/signup">SignUp</Button>
+                    <Button sx={{ boxShadow: 'none', color: 'black', mr: { xs: 2, md: 8}, bgcolor: '#f9be00', '&:hover': { bgcolor: '#f9be00' } }} variant="contained" component={Link} to="/signup">SignUp</Button>
 
                 </Box>
                 

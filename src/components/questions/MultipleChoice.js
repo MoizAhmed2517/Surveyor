@@ -12,8 +12,8 @@ import Checkbox from '@mui/material/Checkbox';
 
 const BpIcon = styled('span')(({ theme }) => ({
   borderRadius: '50%',
-  width: 16,
-  height: 16,
+  width: 18,
+  height: 18,
   boxShadow:
     theme.palette.mode === 'dark'
       ? '0 0 0 1px rgb(16 22 26 / 40%)'
@@ -42,8 +42,8 @@ const BpCheckedIcon = styled(BpIcon)({
   backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
   '&:before': {
     display: 'block',
-    width: 16,
-    height: 16,
+    width: 18,
+    height: 18,
     backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
     content: '""',
   },
@@ -67,20 +67,14 @@ function BpRadio(props) {
 
 const MultipleChoice = (props) => {
   return (
-    <Card sx={{
-      borderRadius: '0.5rem', 
-      boxShadow: '0rem 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1), 0rem 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06)',
-      mb: 2,
-      }}
-    >
-      <CardContent>
-        <Grid container spacing={.5}>
+    
+        <Grid container >
 
           <Grid item xs={12}>
-            <Typography variant="body1" sx={{ fontStyle: 'italic' }}>{props.question}</Typography>
+            <Typography variant="h6" sx={{ fontWeight: 500, fontSize: 18 }}>{props.question}</Typography>
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid item xs={12} sx={{ ml: 2.5, mt: 1 }}>
             <FormControl>
               <RadioGroup
                 aria-labelledby="demo-customized-radios"
@@ -89,7 +83,13 @@ const MultipleChoice = (props) => {
                 {
                   props.option.map(((item, index) => {
                     return(
-                      <FormControlLabel value={item.value} control={<BpRadio />} label={item.label} key={index} />
+                      <FormControlLabel value={item.value} control={<Radio />} label={item.label} key={index} sx={{
+                        '&:hover': {
+                            border: '1px dotted black',
+                            paddingRight: '150px'
+                        } 
+                      }} 
+                    />
                     )
                   }))
                 }
@@ -98,8 +98,6 @@ const MultipleChoice = (props) => {
           </Grid>
 
         </Grid>
-      </CardContent>
-    </Card>
   )
 }
 

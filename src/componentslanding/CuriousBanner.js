@@ -31,7 +31,7 @@ const CuriousBanner = () => {
 
             <Grid item xs={12} sm={12} md={4}>
                 <Stack direction="column">
-                    <img src={curious1} alt='feedback1' style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} />
+                    <img src={curious2} alt='feedback1' style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} />
                     <Typography variant="subtitle1" sx={{ mt: 1, fontWeight: 700, ml: 4 }}>Blog</Typography>
                     <Typography variant="body1" sx={{ mt: 2, fontWeight: 400, ml:4, lineHeight: 2, }}>Get tips on how to create better surveys, hear the latest product news, or check out our signature research.</Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'left', my: 2, ml: 3 }}>
@@ -42,7 +42,7 @@ const CuriousBanner = () => {
 
             <Grid item xs={12} sm={12} md={4}>
                 <Stack direction="column">
-                    <img src={curious1} alt='feedback1' style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} />
+                    <img src={curious3} alt='feedback1' style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} />
                     <Typography variant="subtitle1" sx={{ mt: 1, fontWeight: 700, ml: 4 }}>Help Center</Typography>
                     <Typography variant="body1" sx={{ mt: 2, fontWeight: 400, ml:4, lineHeight: 2, }}>Access tutorials on how features work, learn more about billing, contact Customer Support, and more.</Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'left', my: 2, ml: 3 }}>
