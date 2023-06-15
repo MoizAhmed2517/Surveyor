@@ -78,6 +78,9 @@ const ComplainUser = () => {
                     <InputField fullWidth={true} label="Details - Impact on use of service" display="none" />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12}>
+                    <DragDrop />
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12}>
                     <ButtonCustom title="LOG COMPLAIN" iconEnd={<MailLockIcon />} size="large" fullWidth={true} color="#F39223" hoverColor="#ff8905" linkComponent={Link} address="/survey-user"/>
                   </Grid>
                   
