@@ -64,7 +64,8 @@ const Dashboard = () => {
                 sm: "1px 10px 0px 10px",
                 md: '1px 10px 0px 10px'
               }
-           }}>
+            }}
+           >
             <MDTableDataGridDashboard />
           </Box>
         </Grid>

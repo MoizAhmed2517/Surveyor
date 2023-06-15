@@ -62,9 +62,9 @@ const UserSurveyModal = (props) => {
                         </IconButton>
                     </Box>
                 </Grid>
-                <Grid item xs={12} textAlign="justify">
+                <Grid item xs={12} textAlign="center">
                     <Box sx={{ margin: '10px 30px' }}>
-                        <Typography variant="caption" sx={{  color: '#9b9999', mb: 0.5, fontStyle: 'Italic', fontSize: '10px' }}>{privacyMessage}</Typography>
+                        <Typography variant="caption" sx={{  color: '#9b9999', mb: 1, fontSize: '10px' }}>{privacyMessage}</Typography>
                     </Box>
                 </Grid>
                 <Grid item xs={12} textAlign="justify">

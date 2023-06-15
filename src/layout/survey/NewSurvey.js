@@ -139,10 +139,10 @@ const NewSurvey = () => {
           <CardContent >
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={6}>
-                  <InputField fullWidth={true} label="Survey Name" />
+                  <InputField fullWidth={true} label="Survey Name" display="none" />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <InputField fullWidth={true} label="Survey Description" />
+                  <InputField fullWidth={true} label="Survey Description" display="none" />
                 </Grid>
                 <Grid item xs={12} sm={12} md={12}>
                   <DropDownMultipleField data={sortDataByCategory(data)} label="Select questions to create survey" placeholder="Questions" />

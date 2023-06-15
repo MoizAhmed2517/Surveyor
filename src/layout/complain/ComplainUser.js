@@ -17,7 +17,9 @@ import DropDownMultipleField4 from '../../components/miscellaneous/DropDownMulti
 import ButtonCustom from '../../components/miscellaneous/ButtonCustom';
 import InputField from '../../components/miscellaneous/InputField';
 import DragDrop from '../../components/miscellaneous/DragDrop';
+import Datetime from '../../components/miscellaneous/Datetime';
 import MDTableDataGridComplainUser from '../../components/tables/MDTableDataGridComplainUser';
+
 // Random Data
 
 const data = [
@@ -66,14 +68,14 @@ const ComplainUser = () => {
           >
             <CardContent >
               <Grid container spacing={2}>
-                  <Grid item xs={12} sm={12} md={12}>
+                  <Grid item xs={12} sm={6} md={6}>
                     <DropDownMultipleField4 data={data} label="Please select your complain category" placeholder="Problem" />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={12}>
-                    <InputField fullWidth={true} label="Details" multi={true} display="none" />
+                  <Grid item xs={12} sm={6} md={6} sx={{ mt: -1 }}>
+                    <Datetime />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12}>
-                    <DragDrop />
+                    <InputField fullWidth={true} label="Details - Impact on use of service" display="none" />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12}>
                     <ButtonCustom title="LOG COMPLAIN" iconEnd={<MailLockIcon />} size="large" fullWidth={true} color="#F39223" hoverColor="#ff8905" linkComponent={Link} address="/survey-user"/>
