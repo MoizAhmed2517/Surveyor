@@ -41,7 +41,7 @@ const Customer = () => {
             }}
           > 
             <Grid container>
-              <Grid item xs={12} sm={6} md={6}>
+              <Grid item xs={12} sm={12} md={12}>
                 <Stack direction="row" spacing={2}>
                 <Typography variant="h6" sx={{ marginTop: -0.55, color: '#646464'}} >Add User</Typography>
                 <Tooltip title="Log your complain in this section" placement="right">
@@ -63,10 +63,10 @@ const Customer = () => {
             <CardContent >
               <Grid container spacing={2}>
                   <Grid item xs={12} sm={16} md={4}>
-                    <InputField fullWidth={true} label="Full Name" />
+                    <InputField fullWidth={true} label="Full Name" display="none" />
                   </Grid>
                   <Grid item xs={12} sm={16} md={4}>
-                    <InputField fullWidth={true} label="Email" />
+                    <InputField fullWidth={true} label="Email" display="none" />
                   </Grid>
                   <Grid item xs={12} sm={16} md={4} sx={{ marginTop: 0.9 }}>
                     <ButtonCustom title="SAVE" iconEnd={<SaveOutlinedIcon />} size="large" fullWidth={true} color="#F39223" hoverColor="#ff8905"/>
@@ -84,7 +84,7 @@ const Customer = () => {
             }}
           > 
             <Grid container>
-              <Grid item xs={12} sm={6} md={6}>
+              <Grid item xs={12} sm={12} md={12}>
                 <Stack direction="row" spacing={2}>
                 <Typography variant="h6" sx={{ marginTop: -0.55, color: '#646464'}} >Customer Base</Typography>
                 <Tooltip title="Visit the progress on previous complain" placement="right">

@@ -52,7 +52,7 @@ const SurveyUser = () => {
           <Grid container spacing={2} justifyContent="left">
             {
               dummyData.map((data, index) => (
-                <Grid item xs={12} sm={6} md={3} key={index} >
+                <Grid item xs={12} sm={6} md={4} lg={3} key={index} >
                   <ConfirmProvider>
                     <SurveyCardUser title={data.title} date={data.date} descr={data.descr} LinkComponent={Link} address="/view-response-user" status={data.status} />
                   </ConfirmProvider>

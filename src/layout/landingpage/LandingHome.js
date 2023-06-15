@@ -24,10 +24,11 @@ const LandingHome = () => {
             <Navbar />
 
             <Box sx={{
-                display: {xs: 'none', md: 'flex'},
+                display: {xs: 'none', sm: 'none', md: 'flex'},
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexGrow: 1,
+                flexWrap: 'wrap',
                 my: 17,
                 flexDirection: 'column',
                 }}
@@ -42,7 +43,27 @@ const LandingHome = () => {
             </Box>
 
             <Box sx={{
-                display: {xs: 'flex', md: 'none'},
+                display: {xs: 'none', sm: 'flex', md: 'none'},
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexGrow: 1,
+                flexWrap: 'wrap',
+                my: 15,
+                mx: 2,
+                flexDirection: 'column',
+                }}
+            >
+
+                <TypeAnimationFont />
+                <Typography variant="subtitle" sx={{ my: 2, fontWeight: 500  }}>A global leader in survey software. 20 million questions answered daily.</Typography>
+                <Box sx={{ display: 'block' }}>
+                    
+                    <Button variant="contained" size="large" sx={{ my: 2, bgcolor: 'rgb(0, 191, 111)', '&:hover': { bgcolor: 'rgb(0, 191, 111)' } }}>Get Started</Button>
+                </Box>  
+            </Box>
+
+            <Box sx={{
+                display: {xs: 'flex', sm: 'none', md: 'none'},
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexGrow: 1,
@@ -90,7 +111,7 @@ const LandingHome = () => {
 
             <ButtonCards />
 
-            <Box sx={{ display: 'flex', justifyContent: 'center', my: 8 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', my: 6 }}>
                 <Button variant="contained" sx={{ color: '#000', backgroundColor: '#f8f9fa', boxShadow: 'none', border: '1px black solid', '&:hover': { backgroundColor: '#f8f9fa', boxShadow: 'none', } }}>View all</Button>
             </Box>
 

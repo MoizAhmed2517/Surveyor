@@ -31,7 +31,7 @@ const SurveyCard = (props) => {
 
     return (
       <Card sx={{ 
-        maxWidth: 435, 
+        maxWidth: 500, 
         '&:hover': {
             border: '1px solid #F39223'
                 },

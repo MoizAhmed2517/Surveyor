@@ -1,4 +1,7 @@
-import { Grid, TextField, Checkbox, Stack, FormGroup, FormControlLabel, FormControl, Typography } from '@mui/material'
+import { Grid, TextField, Checkbox, Stack, FormGroup, FormControlLabel, FormControl, Typography, Box } from '@mui/material'
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 import React from 'react'
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -55,124 +58,159 @@ const itemData = [
 ];
 
 const TemplateMesh = () => {
+
+  const theme = useTheme();
+  const matches = useMediaQuery('(min-width:726px)');
+  
   return (
     <Grid container spacing={3} sx={{ mt: 10, mb: 10, justifyContent: 'center', alignItems: 'center' }}>
-            <Grid item xs={12} md={3} sx={{ ml: 1, height: 450, overflow: 'scroll' }}>
-                <Typography variant="h6" sx={{ fontWeight: 400, mb: 2, color: 'rgb(161, 164, 167)' }}>Showing <span style={{ color: 'rgb(0, 191, 111)' }}> 286</span> templates</Typography>
-                <TextField 
-                    placeholder="Search" 
-                    variant="outlined" 
-                    size="small"
-                    sx={{ 
-                        boxShadow: 'none', 
-                        borderRadius: 1, 
-                        '&:hover' : {  
 
-                        }, 
-                        '& .MuiOutlinedInput-root': {
-                        '&.Mui-focused fieldset': {
-                            borderColor: 'transparent', // Change the border color when focused
-                        },
-                    },
-                }} 
-            />
-                <Stack direction="column">
-                    <Typography variant="h5" sx={{ mt: 1 }}>Filter by survey type</Typography>
+        <Grid item xs={12} sm={3.5} md={3} sx={{ height: { xs: 120, sm: 450 }, overflowY: 'scroll' }}>
 
-                    <FormControl sx={{ ml: 3, mt: 3 }} component="fieldset" variant="standard">
-                        {/* <FormLabel component="legend">Assign responsibility</FormLabel> */}
-                        <FormGroup>
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="gilad" />
-                                }
-                                label="Gilad Gray"
-                            />
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="jason" />
-                                }
-                                label="Jason Killian"
-                            />
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="antoine" />
-                                }
-                                label="Antoine Llorca"
-                            />
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="antoine" />
-                                }
-                                label="Antoine Llorca"
-                            /><FormControlLabel
-                                control={
-                                <Checkbox name="antoine" />
-                                }
-                                label="Antoine Llorca"
-                            />
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="antoine" />
-                                }
-                                label="Antoine Llorca"
-                            />
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="antoine" />
-                                }
-                                label="Antoine Llorca"
-                            />
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="antoine" />
-                                }
-                                label="Antoine Llorca"
-                            />
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="antoine" />
-                                }
-                                label="Antoine Llorca"
-                            />
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="antoine" />
-                                }
-                                label="Antoine Llorca"
-                            />
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="antoine" />
-                                }
-                                label="Antoine Llorca"
-                            />
-                            <FormControlLabel
-                                control={
-                                <Checkbox name="antoine" />
-                                }
-                                label="Antoine Llorca"
-                            />
-                            </FormGroup>
-                            {/* <FormHelperText>Be careful</FormHelperText> */}
-                    </FormControl>
-                </Stack>
-            </Grid>
+          <Box sx={{ display: { xs: 'flex', sm: 'none'}, justifyContent: 'center', flexDirection: 'column' }}>
+              <Typography variant="h6" sx={{ fontWeight: 400, mb: 2, color: 'rgb(161, 164, 167)', fontSize: { sm: 14, md: 20 }, textAlign: 'center' }}>Showing <span style={{ color: 'rgb(0, 191, 111)' }}> 286</span> templates</Typography>
+              <TextField 
+                  placeholder="Search" 
+                  variant="outlined" 
+                  size="small"
+                  sx={{ 
+                      boxShadow: 'none',
+                      justifyContent: 'center',
+                      alignContent: 'center',
+                      alignItems: 'center',
+                      width: "100%",
+                      borderRadius: 1, 
+                      '&:hover' : {  
 
-      <Grid item xs={12} md={8}>
-        <ImageList sx={{ width: 850, height: 450 }} cols={4} rowHeight={200} gap={10}>
-            {itemData.map((item) => (
-              <ImageListItem key={item.img} sx={{ padding: 2 }}>
-                <img
-                  src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                  srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                  alt={item.title}
-                  loading="lazy"
-                />
-              </ImageListItem>
-            ))}
-          </ImageList>
-      </Grid>
+                      }, 
+                      '& .MuiOutlinedInput-root': {
+                      '&.Mui-focused fieldset': {
+                          borderColor: 'transparent', // Change the border color when focused
+                      },
+                  },
+              }} 
+          />
+          </Box>
+
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <Typography variant="h6" sx={{ fontWeight: 400, mb: 2, color: 'rgb(161, 164, 167)', fontSize: { sm: 14, md: 20 } }}>Showing <span style={{ color: 'rgb(0, 191, 111)' }}> 286</span> templates</Typography>
+              <TextField 
+                  placeholder="Search" 
+                  variant="outlined" 
+                  size="small"
+                  sx={{ 
+                      boxShadow: 'none', 
+                      borderRadius: 1, 
+                      '&:hover' : {  
+
+                      }, 
+                      '& .MuiOutlinedInput-root': {
+                      '&.Mui-focused fieldset': {
+                          borderColor: 'transparent', // Change the border color when focused
+                      },
+                  },
+              }} 
+          />
+          </Box>
+
+
+          <Stack direction="column" sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <Typography variant="h5" sx={{ mt: 1, fontSize: { sm: 18, md: 25 } }}>Filter by survey type</Typography>
+
+              <FormControl sx={{ ml: { xs: 1, sm: 0, md: 0 }, mt: 3 }} component="fieldset" variant="standard">
+                  {/* <FormLabel component="legend">Assign responsibility</FormLabel> */}
+                  <FormGroup>
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="gilad" />
+                          }
+                          label="Gilad Gray"
+                      />
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="jason" />
+                          }
+                          label="Jason Killian"
+                      />
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="antoine" />
+                          }
+                          label="Antoine Llorca"
+                      />
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="antoine" />
+                          }
+                          label="Antoine Llorca"
+                      /><FormControlLabel
+                          control={
+                          <Checkbox name="antoine" />
+                          }
+                          label="Antoine Llorca"
+                      />
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="antoine" />
+                          }
+                          label="Antoine Llorca"
+                      />
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="antoine" />
+                          }
+                          label="Antoine Llorca"
+                      />
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="antoine" />
+                          }
+                          label="Antoine Llorca"
+                      />
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="antoine" />
+                          }
+                          label="Antoine Llorca"
+                      />
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="antoine" />
+                          }
+                          label="Antoine Llorca"
+                      />
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="antoine" />
+                          }
+                          label="Antoine Llorca"
+                      />
+                      <FormControlLabel
+                          control={
+                          <Checkbox name="antoine" />
+                          }
+                          label="Antoine Llorca"
+                      />
+                      </FormGroup>
+                      {/* <FormHelperText>Be careful</FormHelperText> */}
+              </FormControl>
+          </Stack>
+        </Grid>
+
+        <Grid item xs={12} sm={7.5} md={8}>
+          <ImageList sx={{ width: { sm: 400, md: 610, lg: 850, xl: 1000 }, height: 450 }} cols={matches ? 4 : 2} rowHeight={matches ? 200 : 400} gap={10}>
+              {itemData.map((item) => (
+                <ImageListItem key={item.img} sx={{ padding: 2 }}>
+                  <img
+                    src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                    srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                    alt={item.title}
+                    loading="lazy"
+                  />
+                </ImageListItem>
+              ))}
+            </ImageList>
+        </Grid>
     </Grid>
   )
 }

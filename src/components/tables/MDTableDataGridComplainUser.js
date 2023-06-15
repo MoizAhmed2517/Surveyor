@@ -74,12 +74,6 @@ const MDTableDataGrid = (props) => {
           <DataGrid
             sx={{
               maxHeight: 500,
-              boxShadow: 2,
-              border: 2,
-              borderColor: 'primary.light',
-              '& .MuiDataGrid-cell:hover': {
-                color: 'primary.main',
-              },
             }}
             rows={rows}
             columns={columns}

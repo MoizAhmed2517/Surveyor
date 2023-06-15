@@ -31,9 +31,11 @@ const Banner = () => {
             >
                 Get the responses you need in minutes with SurveyMonkey Audience, our trusted panel of more than 175 million respondents from across the globe.
             </Typography>
-            <Button variant="contained" size="large" sx={{ zIndex: '1', fontWeight: 500, backgroundColor: '#fff', color: '#000', boxShadow: 'none', border: '1px black solid', '&:hover': { backgroundColor: '#fff', color: '#000'},  }}>
-                Get Started
-            </Button>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Button variant="contained" size="large" sx={{ justifyContent: 'center', alignItems: 'center', width: { xs: '60%', sm: '50%', md: '40%', lg: '30%' }, zIndex: '1', fontWeight: 500, backgroundColor: '#fff', color: '#000', boxShadow: 'none', border: '1px black solid', '&:hover': { backgroundColor: '#fff', color: '#000'},  }}>
+                    Get Started
+                </Button>
+            </Box>
       </Stack>
     </Box>
   )

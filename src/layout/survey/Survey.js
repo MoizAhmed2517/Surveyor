@@ -41,21 +41,15 @@ const Survey = () => {
 
         <Box margin="30px 100px 0px 100px"> 
           <Grid container>
-            <Grid item xs={6} sm={12} md={10}>
+            <Grid item xs={12} sm={12} md={8}>
               <Typography variant="h6" sx={{ color: '#646464' }}>Recent Form</Typography>
             </Grid>
-            <Grid 
-              item 
-              xs={6}
-              sm={12}
-              md={2} 
-              mt={-1.2} 
-              sx={{
+            <Grid item xs={12} sm={12} md={4} mt={-1.2} sx={{
                 paddingLeft: {
-                  xs: 10.2, 
-                  sm: 4, 
-                  md: 12.2, 
+                  md: 16.2,
+                  lg: 33.5 
                 },
+                ml: { xs: -1, }
               }}
             >
               <Tooltip title="Create new survey" placement="top">
@@ -76,7 +70,7 @@ const Survey = () => {
           <Grid container spacing={2} justifyContent="left">
             {
               dummyData.map((data, index) => (
-                <Grid item xs={12} sm={6} md={3} key={index} >
+                <Grid item xs={12} sm={6} md={4} lg={4} key={index} >
                   <ConfirmProvider>
                     <SurveyCard title={data.title} date={data.date} descr={data.descr} LinkComponent={Link} address="/edit-survey" />
                   </ConfirmProvider>

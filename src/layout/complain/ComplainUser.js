@@ -45,7 +45,7 @@ const ComplainUser = () => {
             }}
           > 
             <Grid container>
-              <Grid item xs={12} sm={6} md={6}>
+              <Grid item xs={12} sm={12} md={12}>
                 <Stack direction="row" spacing={2}>
                 <Typography variant="h6" sx={{ marginTop: -0.55, color: '#646464'}} >Log Complain</Typography>
                 <Tooltip title="Log your complain in this section" placement="right">
@@ -70,7 +70,7 @@ const ComplainUser = () => {
                     <DropDownMultipleField4 data={data} label="Please select your complain category" placeholder="Problem" />
                   </Grid>
                   <Grid item xs={12} sm={6} md={12}>
-                    <InputField fullWidth={true} label="Details" multi={true} />
+                    <InputField fullWidth={true} label="Details" multi={true} display="none" />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12}>
                     <DragDrop />
@@ -92,7 +92,7 @@ const ComplainUser = () => {
             }}
           > 
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6} md={6} sx={{ my: { xs: 2, md: 0}, marginTop: { md: 2 }}}>
+              <Grid item xs={12} sm={12} md={12} sx={{ my: { xs: 2, md: 0}, marginTop: { md: 2 }}}>
                 <Stack direction="row" spacing={2}>
                 <Typography variant="h6" sx={{ marginTop: -0.55, color: '#646464'}} >Previous Complain Log</Typography>
                 <Tooltip title="Visit the progress on previous complain" placement="right">

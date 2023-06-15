@@ -20,13 +20,14 @@ const MidCard = () => {
             <Grid item xs={12}>
 
                 <Box sx={{
-                    display: { xs: 'none', md: 'block' }, 
+                    display: { xs: 'none', sm: 'block', md: 'block' }, 
                     margin: '0 auto',
                     bgcolor: '#f5f5f5',
                     width: '75%',
-                    height: {md: '615px', xl: '800px'},
+                    height: {sm: '500px', md: '550px', lg: '640px', xl: '715px'},
                     mb: 2,
-                    my: 15
+                    my: 15,
+                    ml: {md: 25, lg: 22}
                 }}>
                     
                     <Grid container>

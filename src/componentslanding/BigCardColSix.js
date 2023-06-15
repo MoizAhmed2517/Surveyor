@@ -41,8 +41,8 @@ const BigCardColSix = (props) => {
             />
             <CardContent sx={{
                 position: 'absolute',
-                bottom: 10,
-                width: '80%', // Add background color
+                bottom: { sm: -2, md: 10 },
+                width: {sm: '100%', md: '90%'}, // Add background color
                 color: 'black', // Add text color
                 paddingLeft: '32px',
             }}>

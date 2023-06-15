@@ -29,7 +29,7 @@ const FormResponse = (props) => {
           }}
         > 
           <Grid container>
-            <Grid item xs={12} sm={6} md={6}>
+            <Grid item xs={12} sm={12} md={12}>
               <Stack direction="row" spacing={2}>
               <Typography variant="h6" sx={{ marginTop: -0.55, color: '#646464'}} >{`Response - ${descr} `}</Typography>
               <Tooltip title="Select all mentioned options to create a survey" placement="right">
