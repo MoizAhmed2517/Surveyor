@@ -30,7 +30,7 @@ const Dashboard = () => {
 
     <Box sx={{ flexGrow: 0, p: 0.5, marginLeft: {xs: 7, sm: 8,  md: 9}, marginTop: -3 }}>
           {/* <DrawerHeader /> */}
-      <Stack>
+      <Stack sx={{ mb: 3 }}>
 
       <Grid container spacing={0.5}>
         <Grid item xs={12} sm={6} md={3}>
@@ -57,13 +57,17 @@ const Dashboard = () => {
       </Grid>
 
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={12} md={12} sx={{ mr: {xs: 2, sm: 5, md: 1}, ml: 1 }}>
-          {/* <MDCollapsibleTable descr="Loreum ipsum discontinue etc" /> */}
-          <MDTableDataGridDashboard />
+        <Grid item xs={12} sm={12} md={12} >
+          <Box sx={{ 
+              margin: {
+                xs: "1px 10px 0px 10px",
+                sm: "1px 10px 0px 10px",
+                md: '1px 10px 0px 10px'
+              }
+           }}>
+            <MDTableDataGridDashboard />
+          </Box>
         </Grid>
-        {/* <Grid item xs={12} sm={12} md={6}>
-          <MDStackedColLine />
-        </Grid> */}
       </Grid>
 
     </Stack>
